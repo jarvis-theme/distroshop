@@ -139,8 +139,9 @@
 				  @endif
 				  
 				</div>
-				<button type="submit" class="btn btn-green">Konfirmasi Order</button>
+				<button type="submit" class="btn btn-info">Konfirmasi Order</button>
 				{{Form::close()}}
+				<br>
 			@endif
 			</div>
 		</div>

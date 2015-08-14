@@ -392,7 +392,7 @@ nav#menu .navbar-form button:hover {background:#f3906c; color:#fff}
     line-height: normal;
     top: -0.7em;
 }
-.product-list ul.grid li.col-lg-6 .p-btn {float:right; margin-top:13px; width:39%}
+.product-list ul.grid li.col-lg-6 .p-btn {float:right; margin-top:13px; width:39%; text-align: right;}
 .product-list ul.grid li.col-lg-6 .p-btn .add-to-cart {
 	background:#0989ea;
 	border:none;
@@ -938,3 +938,4 @@ footer .copyright p {margin:0}
 .fb-share-button {top: -5px;margin: 0 20px;}
 #fb-root {display: inline-block;}
 .user-info .input-group input.form-control{float: none !important;}
+.form-inline .form-control{width: 100% !important;}

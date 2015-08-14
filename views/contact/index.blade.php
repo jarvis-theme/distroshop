@@ -110,7 +110,7 @@
                         <p class="form-group">
                             <textarea class="form-control" placeholder="Pesan" name="messageKontak" required></textarea>
                         </p>
-                        <button class="btn btn-info">Send</button>
+                        <button class="btn btn-info">Kirim</button>
                     </form>
                 </div>
             </div> <!--.center_column-->

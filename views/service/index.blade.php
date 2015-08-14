@@ -14,7 +14,7 @@
                     @endforeach
                 </ul>
             </div>
-            <div id="adv-sidebar" class="block">
+            <div id="adv-sidebar">
                 @foreach(vertical_banner() as $banners)
                 <a href="{{url($banners->url)}}">
                     {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}

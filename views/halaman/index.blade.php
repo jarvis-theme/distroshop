@@ -35,7 +35,7 @@
                 <div class="btn-more"><a href="{{url('produk')}}">view more</a></div>
             </div>
             @endif
-            <div id="advertising" class="block">
+            <div id="advertising">
                 @foreach(vertical_banner() as $banners)
             	<div class="img-block">
             		<a href="{{url($banners->url)}}">
@@ -44,7 +44,6 @@
                 </div>
                 @endforeach
             </div>
-            {{ Theme::partial('subscribe') }}   
         </div><!--#left_sidebar-->
         <div id="center_column" class="col-lg-9 col-xs-12 col-sm-8">
             <h1>{{$data->judul}}</h1>

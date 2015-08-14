@@ -22,6 +22,7 @@
                     	</span>
 		            </div>
 				{{Form::close()}}
+                <br>
 	        </div>
 	        <br>
 	    </div> <!--.center_column-->

@@ -10,7 +10,7 @@
                 @foreach(list_category() as $side_menu)
                     @if($side_menu->parent == '0')
                     <li>
-                        <a href="{{category_url($side_menu)}}">{{$side_menu->nama}} <!-- <span class="arrow-right"></span> --></a>
+                        <a href="{{category_url($side_menu)}}">{{$side_menu->nama}}</a>
                         @if($side_menu->anak->count() != 0)
                         <ul style="padding: 0px 20px;">
                             @foreach(list_category() as $submenu)
@@ -70,7 +70,7 @@
                     @endforeach
                 </ul>
             </div>
-            <div id="adv-sidebar" class="block">
+            <div id="adv-sidebar">
                 @foreach(vertical_banner() as $banners)
                 <a href="{{URL::to($banners->url)}}">
                     {{HTML::image(banner_image_url($banners->gambar),'banner',array('class'=>'img-responsive'))}}

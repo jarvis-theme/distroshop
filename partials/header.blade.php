@@ -2,7 +2,7 @@
     <div id="top-head">
         <div class="container">
             <div class="user-info fl">
-                <form class="navbar-form navbar-left hidden-xs" role="search" action="{{url('search')}}" method="post" style="margin: 0px;">
+                <form class="navbar-form navbar-left hidden-xs" action="{{url('search')}}" method="post" style="margin: 0px;">
                     <div class="input-group">
                         <input style="margin-top: -3px;" placeholder="Search" class="form-control" type="text" required>
                         <span class="input-group-btn">
@@ -13,7 +13,7 @@
             </div>
             <div class="auth-block fr">
                 @if(is_login())
-                Welcome, <a href="{{url('member')}}"><strong>{{user()->nama}}</strong></a>
+                Welcome, <a href="{{url('member')}}"><strong>{{user()->nama}}</strong></a>&nbsp;|&nbsp;<a href="{{url('logout')}}"><strong>Logout&nbsp;&nbsp;<i class="fa fa-sign-out"></i></strong></a>
                 @else
                 <ul>
                     <li class="login"><a href="{{url('member')}}">Login</a></li>

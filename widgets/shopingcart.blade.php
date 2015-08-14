@@ -3,5 +3,5 @@
         <span class="ttl-cart">{{Shpcart::cart()->total_items()}} <strong>items</strong></span><br>
         <span class="text-cart">on your cart</span>
     </a>
-    <button class="cart-btn">Checkout &gt;</button>
+    <a class="cart-btn" href="{{url('checkout')}}">Checkout &gt;</a>
 </div>

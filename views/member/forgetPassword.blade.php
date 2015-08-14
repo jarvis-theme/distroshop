@@ -17,7 +17,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Email" name="recoveryEmail" required>
                     <span class="input-group-btn">
-                        <button class="btn btn-green" type="submit">Reset Password</button>
+                        <button class="btn btn-warning" type="submit">Reset Password</button>
                     </span>
                 </div><br><br>
             </form>

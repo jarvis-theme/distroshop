@@ -69,8 +69,14 @@
 				<div class="form-group">
 					<label for="inputpho1" class="col-lg-2">Captcha</label>
 					<div class="col-lg-10 form-inline">
-						{{ HTML::image(Captcha::img(), 'Captcha image') }}
-						{{Form::text('captcha','',array('class'=>'form-control'))}}
+						<div class="row">
+							<div class="col-xs-12 col-sm-4">
+								{{ HTML::image(Captcha::img(), 'Captcha image') }}
+							</div>
+							<div class="col-xs-12 col-sm-8">
+								{{Form::text('captcha','',array('class'=>'form-control'))}}
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="form-group">

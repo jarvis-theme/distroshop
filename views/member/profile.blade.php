@@ -1,21 +1,3 @@
-@if($errors->all())
-<div class="error" id='message' style='display:none'>
-	Kami menemukan error berikut:
-	<br>
-	<ul>
-		@foreach($errors->all() as $message)
-		<li>{{ $message }}</li>
-		@endforeach
-	</ul>
-</div>
-@endif
-
-@if(Session::has('success'))
-<div class="success" id='message' style='display:none'>
-	Selamat anda telah terdaftar.      
-</div>
-@endif
-
 <div class="top-list container">
     <h2 class="title"><i class="fa fa-user"></i> &nbsp;Edit Profile</h2>
     <div class="clr"></div>
