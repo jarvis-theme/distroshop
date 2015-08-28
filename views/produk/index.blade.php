@@ -70,13 +70,13 @@
                     @endforeach
                 </ul>
             </div>
+            @foreach(vertical_banner() as $banners)
             <div id="adv-sidebar">
-                @foreach(vertical_banner() as $banners)
                 <a href="{{URL::to($banners->url)}}">
                     {{HTML::image(banner_image_url($banners->gambar),'banner',array('class'=>'img-responsive'))}}
                 </a>
-                @endforeach
             </div>
+            @endforeach
         </div>
         <div id="center_column" class="col-lg-9 col-xs-12 col-sm-8">
             <div class="product-list">
@@ -96,7 +96,7 @@
                                     @endif
                                 </div>
                                 <div class="p-desc">
-                                    <h5 class="product-name">{{short_description($product->nama,30)}}</h5>
+                                    <h5 class="product-name">{{short_description($product->nama,25)}}</h5>
                                     <span class="price">{{price($product->hargaJual)}}</span>
                                 </div>
                             </div>

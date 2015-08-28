@@ -35,15 +35,15 @@
                 <div class="btn-more"><a href="{{url('produk')}}">view more</a></div>
             </div>
             @endif
+            @foreach(vertical_banner() as $banners)
             <div id="advertising">
-                @foreach(vertical_banner() as $banners)
             	<div class="img-block">
             		<a href="{{url($banners->url)}}">
                         {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'272','height'=>'391','class'=>'img-responsive'))}}
                     </a>
                 </div>
-                @endforeach
             </div>
+            @endforeach
         </div><!--#left_sidebar-->
         <div id="center_column" class="col-lg-9 col-xs-12 col-sm-8">
             <h1>{{$data->judul}}</h1>

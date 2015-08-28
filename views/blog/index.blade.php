@@ -34,13 +34,13 @@
                 <div class="btn-more"><a href="{{url('produk')}}">view more</a></div>
             </div>
             @endif
+            @foreach(vertical_banner() as $banners)
             <div id="adv-sidebar">
-                @foreach(vertical_banner() as $banners)
                 <a href="{{url($banners->url)}}">
                     {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
                 </a>
-                @endforeach
             </div>
+            @endforeach
         </div><!--#left_sidebar-->
         <div id="center_column" class="col-lg-9 col-xs-12 col-sm-8">
             <div class="product-list col-xs-12">

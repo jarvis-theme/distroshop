@@ -60,13 +60,13 @@
                     <a href="{{url('produk')}}">view more</a>
                 </div>
             </div>
+            @foreach(vertical_banner() as $banners)
             <div id="adv-sidebar">
-                @foreach(vertical_banner() as $banners)
                 <a href="{{URL::to($banners->url)}}">
                     {{HTML::image(banner_image_url($banners->gambar),'banner',array('class'=>'img-responsive'))}}
                 </a>
-                @endforeach
             </div>
+            @endforeach
         </div><!--#left_sidebar-->
         <div id="center_column" class="col-lg-9 col-xs-12 col-sm-8">
             <div class="product-details">
@@ -74,7 +74,7 @@
                     <div class="row">
                         <div id="prod-left" class="col-lg-6 col-xs-12 col-sm-12">
                             <div class="big-image">
-                                <img src="{{url(product_image_url($produk->gambar1,'medium'))}}" width="420" height="420" title="{{$produk->nama}}" />
+                                <img src="{{url(product_image_url($produk->gambar1,'large'))}}" width="420" height="420" title="{{$produk->nama}}" />
                                 <a class="zoom fancybox" href="{{url(product_image_url($produk->gambar1,'large'))}}" title="{{$produk->nama}}">&nbsp;</a>
                             </div>
                             <div id="thumb-view">

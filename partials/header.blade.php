@@ -2,9 +2,9 @@
     <div id="top-head">
         <div class="container">
             <div class="user-info fl">
-                <form class="navbar-form navbar-left hidden-xs" action="{{url('search')}}" method="post" style="margin: 0px;">
+                <form class="navbar-form navbar-left hidden-xs" action="{{URL::to('search')}}" method="post" style="margin: 0px;">
                     <div class="input-group">
-                        <input style="margin-top: -3px;" placeholder="Search" class="form-control" type="text" required>
+                        <input style="margin-top: -3px;" placeholder="Search" class="form-control" type="text" name="search" required>
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
                         </span>
@@ -54,9 +54,9 @@
                     @endforeach
                     <li class="space-star">&nbsp;</li>
                     <li>
-                        <form class="navbar-form navbar-left visible-xs" role="search" action="{{url('search')}}" method="post" style="margin: 0">
+                        <form class="navbar-form navbar-left visible-xs" role="search" action="{{URL::to('search')}}" method="post" style="margin: 0">
                             <div class="input-group">
-                                <input placeholder="Search" class="form-control" type="text" required>
+                                <input placeholder="Search" class="form-control" type="text" name="search" required>
                                 <span class="input-group-btn">
                                     <button class="btn btn-danger" type="submit"><i class="fa fa-search"></i></button>
                                 </span>

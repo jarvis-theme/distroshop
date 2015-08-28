@@ -40,17 +40,17 @@
             <div id="best-seller" class="block">
                 <div class="title"><h2>Produk Terlaris</h2></div>
                 <ul class="block-content">
-                    @foreach(best_seller() as $bestproduk )
+                    @foreach(best_seller() as $best )
                     <li>
-                        <a href="{{product_url($bestproduk)}}">
+                        <a href="{{product_url($best)}}">
                             <div class="img-block">
-                            {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), 'produk', array('class'=>'img-responsive','product'=>'height:81px; margin: 0 auto;'))}}
+                                <img src="{{url(product_image_url($best->gambar1,'thumb'))}}" width="70" height="70" alt="" />
                             </div>
-                            <p class="product-name">{{short_description($bestproduk->nama,15)}}</p>
-                            @if(!empty($bestproduk->hargaCoret))
-                            <p class="author"><del>{{price($bestproduk->hargaCoret)}}</del></p>
+                            <p class="product-name">{{short_description($best->nama,25)}}</p>
+                            @if(!empty($best->hargaCoret))
+                            <p class="author"><del>{{price($best->hargaCoret)}}</del></p>
                             @endif
-                            <p class="price">{{price($bestproduk->hargaJual)}}</p>
+                            <p class="price">{{price($best->hargaJual)}}</p>
                         </a>
                     </li>
                     @endforeach
@@ -70,13 +70,13 @@
                     @endforeach
                 </ul>
             </div>
+            @foreach(vertical_banner() as $banners)
             <div id="adv-sidebar">
-                @foreach(vertical_banner() as $banners)
                 <a href="{{url($banners->url)}}">
                     {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
                 </a>
-                @endforeach
             </div>
+            @endforeach
         </div>
         <div id="center_column" class="col-lg-9 col-xs-12 col-sm-8">
             <div class="product-list">
@@ -84,11 +84,11 @@
                 <div class="row">
                     <ul class="grid">
                         @foreach($hasilpro as $produks)
-                        <li class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+                        <li class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
                             <div class="prod-container">
                                 <div class="image-container">
                                     <a href="{{product_url($produks)}}">
-                                        {{HTML::image(product_image_url($produks->gambar1), 'produk', array('class'=>'img-responsive','product'=>'height:263px; margin: 0 auto;'))}}
+                                        <img class="img-responsive" src="{{url(product_image_url($produks->gambar1,'medium'))}}" alt="product" />
                                     </a>
                                     @if(is_outstok($produks))
                                     <div class="icon-info icon-sold">Sold</div>
@@ -98,12 +98,10 @@
                                     <div class="icon-info icon-new">New</div>
                                     @endif
                                 </div>
-                                <h5 class="product-name">{{$produks->nama}}</h5>
-                                @if(!empty($produks->hargaCoret))
-                                <p class="author"><del>{{price($produks->hargaCoret)}}</del></p>
-                                @endif
-                                <span class="price">{{price($produks->hargaJual)}}</span>
-                                <a href="{{product_url($produks)}}" class="buy-btn">Buy Now</a>
+                                <div class="p-desc">
+                                    <h5 class="product-name">{{short_description($produks->nama,30)}}</h5>
+                                    <span class="price">{{price($produks->hargaJual)}}</span>
+                                </div>
                             </div>
                         </li>
                         @endforeach
