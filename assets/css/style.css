@@ -337,8 +337,8 @@ nav#menu .navbar-form button:hover {background:#f3906c; color:#fff}
 #home-featured {margin-bottom:40px;}
 #home-featured .product-list ul.grid li {margin-bottom: 17px;}
 #adv-home {margin-bottom:10px;}
-#adv-home .adv-full {background: url("../images/shadow-full.png") no-repeat -8px bottom; padding-bottom:32px;}
-#adv-home .adv-third {background: url("../images/shadow-third.png") no-repeat -3px bottom; padding-bottom:22px;}
+/*#adv-home .adv-full {background: url("../images/shadow-full.png") no-repeat -8px bottom; padding-bottom:32px;}*/
+/*#adv-home .adv-third {background: url("../images/shadow-third.png") no-repeat -3px bottom; padding-bottom:22px;}*/
 #adv-home img {width:100%; height:auto}
 #adv-home a:hover img {opacity:0.8}
 .inner-column {margin-bottom:30px}
