@@ -2,11 +2,10 @@
 <html lang="en">
 	<head>
 		{{ Theme::partial('seostuff') }} 
-		{{ Theme::partial('defaultcss') }}  
 		{{ Theme::asset()->styles() }}  
+		{{ Theme::partial('defaultcss') }}  
 	</head>
 	<body>
-		<div class="preloader"></div>
 		<div class="page">
 			{{ Theme::partial('header') }} 
             <section id="main-content">

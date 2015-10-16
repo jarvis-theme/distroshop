@@ -5,12 +5,12 @@
             <div id="advertising">
             	<div class="img-block">
             		<a href="{{url($banner->url)}}">
-            			{{HTML::image(banner_image_url($banner->gambar),'banner',array('width'=>'272','height'=>'auto','class'=>'img-responsive'))}}
+            			{{HTML::image(banner_image_url($banner->gambar),'Promo',array('width'=>'272','height'=>'auto','class'=>'img-responsive'))}}
         			</a>
                 </div>
             </div>
             @endforeach
-        </div><!--#left_sidebar-->
+        </div>
         <div id="center_column" class="col-lg-5 col-xs-12">
 	        <div class="contact-us">
 	            <h2 class="title">Konfirmasi Order</h2>
@@ -25,7 +25,7 @@
                 <br>
 	        </div>
 	        <br>
-	    </div> <!--.center_column-->
+	    </div>
 	    <div class="col-lg-4 col-xs-12">
     		<h2>New Member</h2>
 	    	<p>Nikmati kemudahan dalam berbelanja dengan daftar menjadi member di toko kami.</p>

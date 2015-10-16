@@ -1,3 +1,4 @@
+<style type="text/css">#category{padding: 0 20px}</style>
 <div class="container">
     <div class="breadcrumb">
         <p>PRODUK</p>
@@ -12,13 +13,13 @@
                     <li>
                         <a href="{{category_url($side_menu)}}">{{$side_menu->nama}}</a>
                         @if($side_menu->anak->count() != 0)
-                        <ul style="padding: 0px 20px;">
+                        <ul id="category">
                             @foreach(list_category() as $submenu)
                             @if($submenu->parent == $side_menu->id)
                             <li>
                                 <a href="{{category_url($submenu)}}">{{$submenu->nama}}</a>
                                 @if($submenu->anak->count() != 0)
-                                <ul style="padding: 0px 20px;">
+                                <ul id="category">
                                     @foreach($submenu->anak as $submenu2)
                                     @if($submenu2->parent == $submenu->id)
                                     <li>
@@ -45,7 +46,7 @@
                     <li>
                         <a href="{{product_url($best)}}">
                             <div class="img-block">
-                                <img src="{{url(product_image_url($best->gambar1,'thumb'))}}" width="70" height="70" alt="" />
+                                <img src="{{url(product_image_url($best->gambar1,'thumb'))}}" width="70" height="70" alt="Best Seller" />
                             </div>
                             <p class="product-name">{{short_description($best->nama,25)}}</p>
                             <p class="price">{{$best->hargaJual}}</p>
@@ -73,7 +74,7 @@
             @foreach(vertical_banner() as $banners)
             <div id="adv-sidebar">
                 <a href="{{URL::to($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar),'banner',array('class'=>'img-responsive'))}}
+                    {{HTML::image(banner_image_url($banners->gambar),'Promo',array('class'=>'img-responsive'))}}
                 </a>
             </div>
             @endforeach
@@ -86,7 +87,7 @@
                         <li class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
                             <div class="prod-container">
                                 <div class="image-container">
-                                    <a href="{{product_url($product)}}"><img class="img-responsive" src="{{url(product_image_url($product->gambar1,'medium'))}}" alt="product" /></a>
+                                    <a href="{{product_url($product)}}"><img class="img-responsive" src="{{url(product_image_url($product->gambar1,'medium'))}}" alt="{{$product->nama}}" /></a>
                                     @if(is_outstok($product))
                                     <div class="icon-info icon-sold">Sold</div>
                                     @elseif(is_terlaris($product))
@@ -103,13 +104,13 @@
                         </li>
                         @endforeach
                     </ul>
-                </div><!--.row-->
-            </div><!--.product_list-->
+                </div>
+            </div>
             <div class="clr"></div>
             <div class="content_sortPagiBar">
                 {{list_product(null, @$category, @$collection)->links()}}
                 <div class="clr"></div>
-            </div> <!--.content_sortPagiBar-->
-        </div> <!--.center_column-->
-    </div><!--.inner-column-->  
+            </div> 
+        </div> 
+    </div>
 </div>

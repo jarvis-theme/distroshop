@@ -1,21 +1,24 @@
-var dirTema = document.getElementsByTagName('link')[1].getAttribute('href');
+var dirTema = document.querySelector("meta[name='theme_path']").getAttribute('content');
 
 require.config({
 	baseUrl: '/',
-    urlArgs: "v=001",
-	waitSeconds: 120,
+    urlArgs: "v=003",
+	waitSeconds: 60,
 	shim: {
-		"bootstrap"	: {
+		"jq_flexslider" : {
+			deps : ['jquery'],
+		},
+		"owl_carousel" : {
 			deps: ['jquery'],
 		},
-		'jq_ui' : {
+		"noty" : {
 			deps : ['jquery'],
 		},
 		"noty_util" : {
 			deps : ['jquery','noty'],
 		},
-		"noty" : {
-			deps : ['jquery'],
+		"bootstrap"	: {
+			deps: ['jquery'],
 		},
 		"cart" : {
 			deps : ['jquery'],
@@ -23,34 +26,31 @@ require.config({
 		'fancybox' : {
 			deps : ['jquery']
 		},
-		"owl_carousel" : {
-			deps: ['jquery'],
-		},
-		"jq_flexslider" : {
+		'jq_ui' : {
 			deps : ['jquery'],
 		},
 	},
 
 	paths: {
 		// LIBRARY
-		jquery 			: ['//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min',dirTema+'assets/js/lib/jquery-1.7.1.min'],
+		jquery 			: '//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min',
 		cart			: 'js/shop_cart',
 		jq_ui			: 'js/jquery-ui',
 		noty			: 'js/jquery.noty',
 		noty_util		: 'js/utils/noty',
-		bootstrap		: dirTema+'/assets/js/lib/bootstrap.min',
-		fancybox		: dirTema+'assets/js/lib/jquery.fancybox.pack',
-		jq_flexslider	: dirTema+'assets/js/lib/jquery.flexslider-min',
-		modernizr		: dirTema+'assets/js/lib/modernizr.custom.28468',
-		owl_carousel	: dirTema+'assets/js/lib/owl.carousel.min',
+		bootstrap		: '//maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min',
+		fancybox		: dirTema+'/assets/js/lib/jquery.fancybox.pack',
+		jq_flexslider	: dirTema+'/assets/js/lib/jquery.flexslider-min',
+		modernizr		: dirTema+'/assets/js/lib/modernizr.custom.28468',
+		owl_carousel	: dirTema+'/assets/js/lib/owl.carousel.min',
 		
 		// ROUTE
 		router          : 'js/router',
 
 		// CONTROLLER
-		home            : dirTema+'assets/js/pages/home',
-		produk          : dirTema+'assets/js/pages/produk',
-		main	        : dirTema+'assets/js/pages/default',
+		home            : dirTema+'/assets/js/pages/home',
+		produk          : dirTema+'/assets/js/pages/produk',
+		main	        : dirTema+'/assets/js/pages/default',
 	}
 });
 require([

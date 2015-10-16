@@ -1,3 +1,4 @@
+<style type="text/css">#category{padding: 0 20px}#submenu-child{background-color:transparent}#title-testi{margin-bottom: 20px}</style>
 <div class="container">
 	<div class="breadcrumb"><p>Testimonial</p></div>
 	<div class="inner-column row">
@@ -10,13 +11,13 @@
                         <li>
                             <a href="{{category_url($side_menu)}}">{{$side_menu->nama}}</a>
                             @if($side_menu->anak->count() != 0)
-                            <ul style="padding: 0px 20px;">
+                            <ul id="category">
                                 @foreach($side_menu->anak as $submenu)
                                 @if($submenu->parent == $side_menu->id)
                                 <li>
-                                    <a href="{{category_url($submenu)}}" style="background-color:transparent">{{$submenu->nama}}</a>
+                                    <a href="{{category_url($submenu)}}" id="submenu-child">{{$submenu->nama}}</a>
                                     @if($submenu->anak->count() != 0)
-                                    <ul style="padding: 0px 20px;">
+                                    <ul id="category">
                                         @foreach($submenu->anak as $submenu2)
                                         @if($submenu2->parent == $submenu->id)
                                         <li>
@@ -44,7 +45,7 @@
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
-                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), 'produk', array('class'=>'img-responsive','style'=>'height:81px; margin: 0 auto;'))}}
+                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), 'Best Seller', array('class'=>'img-responsive','id'=>'img-best'))}}
                             </div>
                             <p class="product-name">{{short_description($bestproduk->nama,15)}}</p>
                             @if(!empty($bestproduk->hargaCoret))
@@ -70,7 +71,7 @@
                     @endforeach
                 </ul>
             </div>
-        </div><!--#left_sidebar-->
+        </div>
 
         <div id="center_column" class="col-lg-9 col-xs-12 col-sm-8">
             @foreach (list_testimonial() as $items)  
@@ -90,7 +91,7 @@
             </div>
             
             <div class="respond">
-                <h3 style="margin-bottom: 20px;">Kirim Testimonial</h3>
+                <h3 id="title-testi">Kirim Testimonial</h3>
                 <form method="post" action="{{url('testimoni')}}" role="form">
                 	<div class="form-group">
                 		<label for="name">Nama</label>
@@ -98,12 +99,12 @@
                 	</div>
                 	<div class="form-group">
                 		<label for="exampleInputEmail1">Testimonial</label>
-                		<textarea name="testimonial" required class="form-control" rows="3" required></textarea>
+                		<textarea name="testimonial" class="form-control" rows="3" required></textarea>
                 	</div>
                 	<button type="submit" class="btn btn-info">Kirim</button>
                 	<button type="reset" class="btn btn-default">Reset</button>
                 </form>
             </div>
-        </div> <!--.center_column-->
-    </div><!--.inner-column-->	
+        </div> 
+    </div>
 </div>

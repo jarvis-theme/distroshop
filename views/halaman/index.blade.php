@@ -21,7 +21,7 @@
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
-                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), 'produk', array('class'=>'img-responsive','style'=>'height:81px; margin: 0 auto;'))}}
+                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), 'Best Seller', array('class'=>'img-responsive','id'=>'img-best'))}}
                             </div>
                             <p class="product-name">{{short_description($bestproduk->nama,15)}}</p>
                             @if(!empty($bestproduk->hargaCoret))
@@ -39,12 +39,12 @@
             <div id="advertising">
             	<div class="img-block">
             		<a href="{{url($banners->url)}}">
-                        {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'272','height'=>'391','class'=>'img-responsive'))}}
+                        {{HTML::image(banner_image_url($banners->gambar),'Promo',array('width'=>'272','height'=>'391','class'=>'img-responsive'))}}
                     </a>
                 </div>
             </div>
             @endforeach
-        </div><!--#left_sidebar-->
+        </div>
         <div id="center_column" class="col-lg-9 col-xs-12 col-sm-8">
             <h1>{{$data->judul}}</h1>
         	<div class="row">
@@ -53,6 +53,6 @@
                     {{$data->isi}}
                 </article>
             </div>
-        </div> <!--.center_column-->
-    </div><!--.inner-column-->
+        </div>
+    </div>
 </div>

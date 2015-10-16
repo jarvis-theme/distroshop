@@ -1,3 +1,4 @@
+<style type="text/css">#home-product{height: 497px;max-width: 100%}</style>
 <div class="inner-column row">
     <div id="center_column" class="col-lg-12 col-xs-12 col-sm-12">
         <div id="adv-home">
@@ -5,7 +6,7 @@
                 @foreach(horizontal_banner() as $main_banner)
                 <div class="col-xs-12">
                     <div class="adv-third">
-                        <a href="{{$main_banner->url}}"><img src="{{url(banner_image_url($main_banner->gambar))}}"/></a>
+                        <a href="{{$main_banner->url}}"><img src="{{url(banner_image_url($main_banner->gambar))}}" alt="Promo" /></a>
                     </div>
                 </div>
                 @endforeach
@@ -20,7 +21,7 @@
                     <li class="col-xs-12 col-sm-12 col-md-12 col-lg-6 big-fl">
                         <div class="prod-container">
                             <div class="image-container">
-                                <a href="{{product_url($home)}}"><img class="img-responsive" src="{{url(product_image_url($home->gambar1,'large'))}}" alt="product" style="height: 497px;max-width: 100%;" /></a>
+                                <a href="{{product_url($home)}}"><img class="img-responsive" src="{{url(product_image_url($home->gambar1,'large'))}}" alt="Koleksi Produk" id="home-product" /></a>
                                 @if(is_outstok($home))
                                 <div class="icon-info icon-sold">Sold</div>
                                 @elseif(is_terlaris($home))
@@ -44,7 +45,7 @@
                     <li class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
                         <div class="prod-container">
                             <div class="image-container">
-                                <a href="{{product_url($home)}}"><img class="img-responsive" src="{{url(product_image_url($home->gambar1,'medium'))}}" alt="product" /></a>
+                                <a href="{{product_url($home)}}"><img class="img-responsive" src="{{url(product_image_url($home->gambar1,'medium'))}}" alt="Koleksi Produk" /></a>
                                 @if(is_outstok($home))
                                 <div class="icon-info icon-sold">Sold</div>
                                 @elseif(is_terlaris($home))
@@ -71,7 +72,7 @@
                 @foreach(vertical_banner() as $side_banner)
                 <div class="col-xs-4">
                     <div class="adv-third">
-                        <a href="{{$side_banner->url}}"><img src="{{url(banner_image_url($side_banner->gambar))}}" /></a>
+                        <a href="{{$side_banner->url}}"><img src="{{url(banner_image_url($side_banner->gambar))}}" alt="Promo" /></a>
                     </div>
                 </div>
                 @endforeach

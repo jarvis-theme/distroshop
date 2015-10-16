@@ -1,3 +1,4 @@
+<style type="text/css">#underlines{text-decoration: underline}#article{margin-bottom:10px}#blog-title{margin-bottom: 3px}#tags{margin-bottom: 15px}</style>
 <div class="container">
     <div class="breadcrumb">
         <p><strong>List Blog</strong></p>
@@ -8,7 +9,7 @@
                 <div class="title"><h2>Kategori Blog</h2></div>
                 <ul class="block-content">
                     @foreach(list_blog_category() as $kat)
-                    <span style="text-decoration: underline;"><a href="{{blog_category_url($kat)}}">{{$kat->nama}}</a></span>&nbsp;&nbsp;
+                    <span id="underlines"><a href="{{blog_category_url($kat)}}">{{$kat->nama}}</a></span>&nbsp;&nbsp;
                     @endforeach 
                 </ul>
             </div>
@@ -20,7 +21,7 @@
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
-                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), 'Best Seller', array('class'=>'img-responsive','style'=>'height:81px; margin: 0 auto;'))}}
+                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), 'Best Seller', array('class'=>'img-responsive','id'=>'img-best'))}}
                             </div>
                             <p class="product-name">{{short_description($bestproduk->nama,15)}}</p>
                             @if(!empty($bestproduk->hargaCoret))
@@ -37,18 +38,18 @@
             @foreach(vertical_banner() as $banners)
             <div id="adv-sidebar">
                 <a href="{{url($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
+                    {{HTML::image(banner_image_url($banners->gambar),'Promo',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
                 </a>
             </div>
             @endforeach
-        </div><!--#left_sidebar-->
+        </div>
         <div id="center_column" class="col-lg-9 col-xs-12 col-sm-8">
             <div class="product-list col-xs-12">
                 <div class="row">
                     @foreach(list_blog(null,@$blog_category) as $blog)
-                    <article class="col-lg-12" style="margin-bottom:10px">
-                        <h3 style="margin-bottom: 3px;"><strong><a href="{{blog_url($blog)}}">{{$blog->judul}}</a></strong></h3>
-                        <p style="margin-bottom: 15px;">
+                    <article class="col-lg-12" id="article">
+                        <h3 id="blog-title"><strong><a href="{{blog_url($blog)}}">{{$blog->judul}}</a></strong></h3>
+                        <p id="tags">
                             <small><i class="fa fa-calendar"></i> {{waktuTgl($blog->updated_at)}}</small>&nbsp;&nbsp;
                             <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$blog->kategori)}}">{{@$blog->kategori->nama}}</a></span>
                         </p>
@@ -64,6 +65,6 @@
                     {{list_blog(null,@$blog_category)->links()}}
                 </div>
             </div>
-        </div> <!--.center_column-->
-    </div><!--.inner-column-->
+        </div>
+    </div>
 </div>

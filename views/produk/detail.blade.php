@@ -1,3 +1,4 @@
+<style type="text/css">#category{padding: 0 20px}#empty{color: #d9534f}</style>
 <div class="container">
     <div class="breadcrumb">
         <p>DETAIL PRODUK</p>
@@ -12,13 +13,13 @@
                     <li>
                         <a href="{{category_url($side_menu)}}">{{$side_menu->nama}}</a>
                         @if($side_menu->anak->count() != 0)
-                        <ul style="padding: 0px 20px;">
+                        <ul id="category">
                             @foreach(list_category() as $submenu)
                             @if($submenu->parent == $side_menu->id)
                             <li>
                                 <a href="{{category_url($submenu)}}">{{$submenu->nama}}</a>
                                 @if($submenu->anak->count() != 0)
-                                <ul style="padding: 0px 20px;">
+                                <ul id="category">
                                     @foreach($submenu->anak as $submenu2)
                                     @if($submenu2->parent == $submenu->id)
                                     <li>
@@ -45,7 +46,7 @@
                     <li>
                         <a href="{{product_url($best)}}">
                             <div class="img-block">
-                                <img src="{{url(product_image_url($best->gambar1,'thumb'))}}" width="70" height="70" alt="" />
+                                <img src="{{url(product_image_url($best->gambar1,'thumb'))}}" width="70" height="70" alt="Best Seller" />
                             </div>
                             <p class="product-name">{{short_description($best->nama,25)}}</p>
                             @if(!empty($best->hargaCoret))
@@ -63,30 +64,30 @@
             @foreach(vertical_banner() as $banners)
             <div id="adv-sidebar">
                 <a href="{{URL::to($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar),'banner',array('class'=>'img-responsive'))}}
+                    {{HTML::image(banner_image_url($banners->gambar),'Promo',array('class'=>'img-responsive'))}}
                 </a>
             </div>
             @endforeach
-        </div><!--#left_sidebar-->
+        </div>
         <div id="center_column" class="col-lg-9 col-xs-12 col-sm-8">
             <div class="product-details">
                 <form action="#" id="addorder">
                     <div class="row">
                         <div id="prod-left" class="col-lg-6 col-xs-12 col-sm-12">
                             <div class="big-image">
-                                <img src="{{url(product_image_url($produk->gambar1,'large'))}}" width="420" height="420" title="{{$produk->nama}}" />
+                                <img src="{{url(product_image_url($produk->gambar1,'large'))}}" width="420" height="420" title="{{$produk->nama}}" alt="{{$produk->nama}}" />
                                 <a class="zoom fancybox" href="{{url(product_image_url($produk->gambar1,'large'))}}" title="{{$produk->nama}}">&nbsp;</a>
                             </div>
                             <div id="thumb-view">
                                 <ul id="thumb-list" class="owl-carousel owl-theme">
                                     @if($produk->gambar2 != '')
-                                    <li class="item"><a class="fancybox" href="{{url(product_image_url($produk->gambar2,'large'))}}" title="{{$produk->nama}}"><img src="{{url(product_image_url($produk->gambar2,'thumb'))}}" width="134" height="133" /></a></li>
+                                    <li class="item"><a class="fancybox" href="{{url(product_image_url($produk->gambar2,'large'))}}" title="{{$produk->nama}}"><img src="{{url(product_image_url($produk->gambar2,'thumb'))}}" width="134" height="133" alt="{{$produk->nama}}" /></a></li>
                                     @endif
                                     @if($produk->gambar3 != '')
-                                    <li class="item"><a class="fancybox" href="{{url(product_image_url($produk->gambar3,'large'))}}" title="{{$produk->nama}}"><img src="{{url(product_image_url($produk->gambar3,'thumb'))}}" width="134" height="133" alt="" /></a></li>
+                                    <li class="item"><a class="fancybox" href="{{url(product_image_url($produk->gambar3,'large'))}}" title="{{$produk->nama}}"><img src="{{url(product_image_url($produk->gambar3,'thumb'))}}" width="134" height="133" alt="{{$produk->nama}}" /></a></li>
                                     @endif
                                     @if($produk->gambar4 != '')
-                                    <li class="item"><a class="fancybox" href="{{url(product_image_url($produk->gambar4,'large'))}}" title="{{$produk->nama}}"><img src="{{url(product_image_url($produk->gambar4,'thumb'))}}" width="134" height="133" alt="" /></a></li>
+                                    <li class="item"><a class="fancybox" href="{{url(product_image_url($produk->gambar4,'large'))}}" title="{{$produk->nama}}"><img src="{{url(product_image_url($produk->gambar4,'thumb'))}}" width="134" height="133" alt="{{$produk->nama}}" /></a></li>
                                     @endif
                                 </ul>
                             </div>
@@ -141,7 +142,7 @@
                                 <span class="instock">Available, Stock <span class="ttl-stock">{{$produk->stok}} item</span></span>
                                 @else
                                 <span class="fa-stack fa-1x">
-                                    <i style="color: #d9534f;" class="fa fa-circle fa-stack-2x"></i>
+                                    <i id="empty" class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-close fa-stack-1x fa-inverse"></i>
                                 </span>
                                 Out of Stock
@@ -149,10 +150,9 @@
                             </div>
                         </div>
                         <div class="clr"></div>
-                    </div><!--.row-->
+                    </div>
                     <div class="btm-details">
                         <div class="bank-logo fl">
-                            <!-- <img class="img-responsive" src="images/bank.png" width="461" height="37" alt="" /> -->
                         </div>
                         <div class="button-detail fr">
                             <button class="btn addtocart"><i class="cart"></i>Add to cart</button>
@@ -160,7 +160,7 @@
                         <div class="clr"></div>
                     </div>
                 </form>
-            </div><!--.product-details-->
+            </div>
             @if(count(other_product($produk, 3)) > 0)
             <div id="related-product" class="product-list">
                 <h2 class="title">Related Product</h2>
@@ -170,7 +170,7 @@
                         <li class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
                             <div class="prod-container">
                                 <div class="image-container">
-                                    <a href="{{product_url($relproduk)}}"><img class="img-responsive" src="{{url(product_image_url($relproduk->gambar1,'medium'))}}" alt="product" /></a>
+                                    <a href="{{product_url($relproduk)}}"><img class="img-responsive" src="{{url(product_image_url($relproduk->gambar1,'medium'))}}" alt="Produk Terkait" /></a>
                                     @if(is_outstok($relproduk))
                                     <div class="icon-info icon-sold">Sold</div>
                                     @elseif(is_terlaris($relproduk))
@@ -187,10 +187,10 @@
                         @endforeach
                     </ul>
                 </div>
-            </div><!--.product-list-->
+            </div>
             @endif
 
             {{pluginTrustklik()}}
-        </div> <!--.center_column-->
-    </div><!--.inner-column-->  
+        </div> 
+    </div>
 </div>

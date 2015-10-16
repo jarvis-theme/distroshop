@@ -102,7 +102,7 @@
                 <div id="payment_footer" class="col-sm-6">
                     <span>Payment :</span>
                     @foreach(list_banks() as $value)
-                    <img title="payment" alt="payment" src="{{bank_logo($value)}}">
+                    <img title="payment" alt="{{$value->nama}}" src="{{bank_logo($value)}}">
                     @endforeach
                     @foreach(list_payments() as $pay)
                         @if($pay->nama == 'ipaymu' && $pay->aktif == 1)

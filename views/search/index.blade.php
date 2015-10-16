@@ -1,3 +1,4 @@
+<style type="text/css">#category{padding: 0 20px}#submenu-child{background-color:transparent}#hal-article{margin-bottom:10px}#title-hal{margin-bottom: 3px}#tags-hal{margin-bottom: 15px}</style>
 <div class="container">
     <div class="breadcrumb"><p>Hasil Pencarian</p></div>
     <div class="inner-column row">
@@ -10,13 +11,13 @@
                         <li>
                             <a href="{{category_url($side_menu)}}">{{$side_menu->nama}}</a>
                             @if($side_menu->anak->count() != 0)
-                            <ul style="padding: 0px 20px;">
+                            <ul id="category">
                                 @foreach($side_menu->anak as $submenu)
                                 @if($submenu->parent == $side_menu->id)
                                 <li>
-                                    <a href="{{category_url($submenu)}}" style="background-color:transparent">{{$submenu->nama}}</a>
+                                    <a href="{{category_url($submenu)}}" id="submenu-child">{{$submenu->nama}}</a>
                                     @if($submenu->anak->count() != 0)
-                                    <ul style="padding: 0px 20px;">
+                                    <ul id="category">
                                         @foreach($submenu->anak as $submenu2)
                                         @if($submenu2->parent == $submenu->id)
                                         <li>
@@ -44,7 +45,7 @@
                     <li>
                         <a href="{{product_url($best)}}">
                             <div class="img-block">
-                                <img src="{{url(product_image_url($best->gambar1,'thumb'))}}" width="70" height="70" alt="" />
+                                <img src="{{url(product_image_url($best->gambar1,'thumb'))}}" width="70" height="70" alt="Best Seller" />
                             </div>
                             <p class="product-name">{{short_description($best->nama,25)}}</p>
                             @if(!empty($best->hargaCoret))
@@ -73,7 +74,7 @@
             @foreach(vertical_banner() as $banners)
             <div id="adv-sidebar">
                 <a href="{{url($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
+                    {{HTML::image(banner_image_url($banners->gambar),'Promo',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
                 </a>
             </div>
             @endforeach
@@ -88,7 +89,7 @@
                             <div class="prod-container">
                                 <div class="image-container">
                                     <a href="{{product_url($produks)}}">
-                                        <img class="img-responsive" src="{{url(product_image_url($produks->gambar1,'medium'))}}" alt="product" />
+                                        <img class="img-responsive" src="{{url(product_image_url($produks->gambar1,'medium'))}}" alt="{{$produks->nama}}" />
                                     </a>
                                     @if(is_outstok($produks))
                                     <div class="icon-info icon-sold">Sold</div>
@@ -109,8 +110,8 @@
                 </div>
                 <div class="row">
                     @foreach($hasilhal as $hal)
-                    <article class="col-lg-12" style="margin-bottom:10px">
-                        <h3 style="margin-bottom: 3px;">
+                    <article class="col-lg-12" id="hal-article">
+                        <h3 id="title-hal">
                             <strong><a href="{{url('halaman/'.$hal->slug)}}">
                             {{$hal->judul}}</a></strong>
                         </h3>
@@ -121,11 +122,11 @@
                     </article>
                     @endforeach
                     @foreach($hasilblog as $blog_result)  
-                    <article class="col-lg-12" style="margin-bottom:10px">
-                        <h3 style="margin-bottom: 3px;">
+                    <article class="col-lg-12" id="hal-article">
+                        <h3 id="title-hal">
                             <strong><a href="{{blog_url($blog_result)}}">{{$blog_result->judul}}</a></strong>
                         </h3>
-                        <p style="margin-bottom: 15px;">
+                        <p id="tags-hal">
                             <small><i class="fa fa-calendar"></i> {{waktuTgl($blog_result->updated_at)}}</small>&nbsp;&nbsp;
                             <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$blog_result->kategori)}}">{{@$blog_result->kategori->nama}}</a></span>
                         </p>

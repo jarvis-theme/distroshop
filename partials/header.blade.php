@@ -23,11 +23,18 @@
             </div>
             <div class="clr"></div>
         </div>
-    </div> <!--.top-head-->
+    </div>
     <div id="center-header">
         <div class="container">
             <div id="logo" class="fl">
+                @if(@getimagesize(url( logo_image_url() )))
                 <a href="{{url('home')}}"><img src="{{url(logo_image_url())}}" alt="Logo" width="313" height="151" /></a>
+                @else
+                <br>
+                <a style="font-weight: bold; font-size: 35px;" href="{{url('home')}}">
+                    {{ short_description(Theme::place('title'),30) }}
+                </a>
+                @endif
             </div>
             <div id="shoppingcartplace">
                 {{shopping_cart()}}
@@ -35,7 +42,7 @@
             <div class="clr"></div>
         </div>
     </div>
-    <!-- MENU - START -->
+    
     <nav id="menu" class="navbar navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -67,6 +74,6 @@
             </div>                                                                                                  
         </div>
     </nav>
-    <!-- MENU - END -->
+    
     <div class="clr"></div>
 </header>

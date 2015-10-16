@@ -1,3 +1,4 @@
+<style type="text/css">#underlines{text-decoration: underline}#btm-margin{margin-bottom: 25px;}#top-margin{margin-top: 25px;}#margin-title{margin-bottom: 8px}</style>
 <div class="container">
     <div class="breadcrumb"><p><strong>Detail Blog</strong></p></div>
     <div class="inner-column row">
@@ -6,7 +7,7 @@
                 <div class="title"><h2>Kategori</h2></div>
                 <ul class="block-content">
                     @foreach(list_blog_category() as $kat)
-                    <span style="text-decoration: underline;"><a href="{{blog_category_url($kat)}}">{{$kat->nama}}</a></span>&nbsp;&nbsp;
+                    <span id="underlines"><a href="{{blog_category_url($kat)}}">{{$kat->nama}}</a></span>&nbsp;&nbsp;
                     @endforeach 
                 </ul>
             </div>
@@ -17,7 +18,7 @@
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
-                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), 'Best Seller', array('class'=>'img-responsive','style'=>'height:81px; margin: 0 auto;'))}}
+                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), 'Best Seller', array('class'=>'img-responsive','id'=>'img-best'))}}
                             </div>
                             <p class="product-name">{{short_description($bestproduk->nama,15)}}</p>
                             @if(!empty($bestproduk->hargaCoret))
@@ -33,7 +34,7 @@
             @foreach(vertical_banner() as $banners)
             <div id="adv-sidebar">
                 <a href="{{url($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
+                    {{HTML::image(banner_image_url($banners->gambar),'Promo',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
                 </a>
             </div>
             @endforeach
@@ -42,16 +43,16 @@
             <div class="product-list">
                 <section class="content">
                     <div class="entry">
-                        <h2 class="title" style="margin-bottom: 8px">{{$detailblog->judul}}</h2>
-                        <ul class="col-xs-12 col-sm-8" style="margin-bottom: 25px;">
+                        <h2 class="title" id="margin-title">{{$detailblog->judul}}</h2>
+                        <ul class="col-xs-12 col-sm-8" id="btm-margin">
                             <small>
                                 <span class="date-post"><i class="fa fa-calendar"></i> {{waktuTgl($detailblog->created_at)}}</span>&nbsp;&nbsp;
                                 <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$detailblog->kategori)}}">{{@$detailblog->kategori->nama}}</a></span>
                             </small>
                         </ul>
-                        <div class="col-xs-12 col-sm-4 sosial-share" style="margin-bottom: 25px;">{{sosialShare(blog_url($detailblog))}}</div>
-                        <p style="margin-top: 25px;">{{$detailblog->isi}}</p>
-                    </div><!--entry-->
+                        <div class="col-xs-12 col-sm-4 sosial-share" id="btm-margin">{{sosialShare(blog_url($detailblog))}}</div>
+                        <p id="top-margin">{{$detailblog->isi}}</p>
+                    </div>
                     <hr>
                     <div class="navigate comments clearfix">
                     @if(isset($prev))
@@ -61,7 +62,7 @@
                     @endif
                     @if(isset($next))
                         <div class="pull-right">
-                            <a style="float: right;" href="{{$next->slug}}">Selanjutnya &rarr;</a>
+                            <a class="pull-right" href="{{$next->slug}}">Selanjutnya &rarr;</a>
                         </div>
                     @else
                         <div class="pull-right"></div>
@@ -74,6 +75,6 @@
                     </div>
                 </section>
             </div>
-        </div> <!--.center_column-->
-    </div><!--.inner-column-->
+        </div>
+    </div>
 </div>
