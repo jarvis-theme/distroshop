@@ -1,4 +1,4 @@
-define(['jquery','jq_flexslider','owl_carousel'], function($,flexslider,owlCarousel)
+define(['jq_flexslider','owl_carousel'], function(flexslider,owlCarousel)
 {
 	return new function(){
 		var self = this;

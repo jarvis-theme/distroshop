@@ -1,4 +1,3 @@
-<style type="text/css">#category{padding: 0 20px}#submenu-child{background-color:transparent}#title-testi{margin-bottom: 20px}</style>
 <div class="container">
 	<div class="breadcrumb"><p>Testimonial</p></div>
 	<div class="inner-column row">
@@ -45,7 +44,7 @@
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
-                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), 'Best Seller', array('class'=>'img-responsive','id'=>'img-best'))}}
+                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), $bestproduk->nama, array('class'=>'img-responsive','id'=>'img-best'))}}
                             </div>
                             <p class="product-name">{{short_description($bestproduk->nama,15)}}</p>
                             @if(!empty($bestproduk->hargaCoret))
@@ -56,7 +55,7 @@
                     </li>
                     @endforeach
                 </ul>
-                <div class="btn-more"><a href="{{url('produk')}}">view more</a></div>
+                <div class="btn-more"><a href="{{url('produk')}}">Lihat Semua</a></div>
             </div>
             @endif
             <div id="latest-news" class="block">
@@ -65,7 +64,7 @@
                    @foreach(list_blog(3) as $value)
                     <li>
                         <h5 class="title-news">{{$value->judul}}</h5>
-                        <p>{{short_description($value->isi,55)}}...<a class="read-more" href="{{blog_url($value)}}">Read More</a></p>
+                        <p>{{short_description($value->isi,55)}}<a class="read-more" href="{{blog_url($value)}}">Selengkapnya</a></p>
                         <span class="date-post">{{date("d M Y", strtotime($value->created_at))}}</span>
                     </li> 
                     @endforeach
@@ -79,15 +78,11 @@
         		<div class="panel-heading">
         			<h4 class="panel-title">{{$items->nama}}</h4>
         		</div>
-    			<div class="panel-body">
-        			"{{$items->isi}}"
-    			</div>
+    			<div class="panel-body">"{{$items->isi}}"</div>
         	</div>
             @endforeach
             <div class="row">
-            	<div class="col-md-12">
-            	   {{list_testimonial()->links()}}
-            	</div>
+            	<div class="col-md-12">{{list_testimonial()->links()}}</div>
             </div>
             
             <div class="respond">
@@ -95,14 +90,14 @@
                 <form method="post" action="{{url('testimoni')}}" role="form">
                 	<div class="form-group">
                 		<label for="name">Nama</label>
-                		<input type="text" class="form-control" name="nama" required id="name" required>
+                		<input type="text" class="form-control" name="nama" id="name" required>
                 	</div>
                 	<div class="form-group">
                 		<label for="exampleInputEmail1">Testimonial</label>
                 		<textarea name="testimonial" class="form-control" rows="3" required></textarea>
                 	</div>
-                	<button type="submit" class="btn btn-info">Kirim</button>
-                	<button type="reset" class="btn btn-default">Reset</button>
+                	<button class="btn btn-info" type="submit">Kirim</button>
+                	<button class="btn btn-default" type="reset">Reset</button>
                 </form>
             </div>
         </div> 

@@ -4,8 +4,7 @@
     		<p>Silahkan Login untuk kemudahan melakukan checkout. Cepat dan Mudah dalam bertransaksi. Mudah untuk mengetahui status dan riwayat order kamu.</p>
 			<br>
 			<h2>Log in</h2>
-			<hr>
-			<br>
+			<hr><br>
             <form class="form-horizontal" action="{{url('member/login')}}" method="post">
 				<div class="form-group">
 			    	<label for="inputEmail3" class="col-sm-2">Email</label>
@@ -21,9 +20,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<small>
-							<a href="{{url('member/forget-password')}}">Lupa Password?</a>
-						</small>
+						<small><a href="{{url('member/forget-password')}}">Lupa Password?</a></small>
 					</div>
 				</div>
 				<div class="form-group">
@@ -40,7 +37,7 @@
 	    </div>
 	    <div class="col-lg-3 col-xs-12">
 	    	@foreach(vertical_banner() as $banners)
-	    	{{HTML::image(banner_image_url($banners->gambar))}}
+	    	{{HTML::image(banner_image_url($banners->gambar), 'Info Promo')}}
 	    	@endforeach
 	    </div>
     </div>

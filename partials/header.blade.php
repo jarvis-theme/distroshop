@@ -2,9 +2,9 @@
     <div id="top-head">
         <div class="container">
             <div class="user-info fl">
-                <form class="navbar-form navbar-left hidden-xs" action="{{URL::to('search')}}" method="post" style="margin: 0px;">
+                <form class="navbar-form navbar-left hidden-xs zeromargin" action="{{URL::to('search')}}" method="post">
                     <div class="input-group">
-                        <input style="margin-top: -3px;" placeholder="Search" class="form-control" type="text" name="search" required>
+                        <input class="form-control" id="search" type="text" name="search" placeholder="Cari" required>
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
                         </span>
@@ -28,17 +28,17 @@
         <div class="container">
             <div id="logo" class="fl">
                 @if(@getimagesize(url( logo_image_url() )))
-                <a href="{{url('home')}}"><img src="{{url(logo_image_url())}}" alt="Logo" width="313" height="151" /></a>
+                <a href="{{url('home')}}">
+                    <img src="{{url(logo_image_url())}}" alt="Logo" width="313" height="151" />
+                </a>
                 @else
                 <br>
-                <a style="font-weight: bold; font-size: 35px;" href="{{url('home')}}">
+                <a href="{{url('home')}}" id="logotext">
                     {{ short_description(Theme::place('title'),30) }}
                 </a>
                 @endif
             </div>
-            <div id="shoppingcartplace">
-                {{shopping_cart()}}
-            </div>
+            <div id="shoppingcartplace">{{shopping_cart()}}</div>
             <div class="clr"></div>
         </div>
     </div>
@@ -61,7 +61,7 @@
                     @endforeach
                     <li class="space-star">&nbsp;</li>
                     <li>
-                        <form class="navbar-form navbar-left visible-xs" role="search" action="{{URL::to('search')}}" method="post" style="margin: 0">
+                        <form class="navbar-form navbar-left visible-xs zeromargin" role="search" action="{{URL::to('search')}}" method="post">
                             <div class="input-group">
                                 <input placeholder="Search" class="form-control" type="text" name="search" required>
                                 <span class="input-group-btn">
@@ -74,6 +74,5 @@
             </div>                                                                                                  
         </div>
     </nav>
-    
     <div class="clr"></div>
 </header>

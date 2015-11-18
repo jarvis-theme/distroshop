@@ -1,9 +1,8 @@
-define(['jquery','fancybox','owl_carousel'], function($,fancybox,owlCarousel)
+define(['fancybox','owl_carousel'], function(fancybox,owlCarousel)
 {
 	return new function(){
 		var self = this;
 		self.run = function(){
-
 			$("a.fancybox").fancybox({
 				'transitionIn'	:	'elastic',
 				'transitionOut'	:	'elastic',

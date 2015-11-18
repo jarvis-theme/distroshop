@@ -5,7 +5,7 @@
             <div id="advertising">
             	<div class="img-block">
             		<a href="{{url($banner->url)}}">
-            			{{HTML::image(banner_image_url($banner->gambar),'Promo',array('width'=>'272','height'=>'auto','class'=>'img-responsive'))}}
+            			{{HTML::image(banner_image_url($banner->gambar),'Info Promo',array('width'=>'272','height'=>'auto','class'=>'img-responsive'))}}
         			</a>
                 </div>
             </div>

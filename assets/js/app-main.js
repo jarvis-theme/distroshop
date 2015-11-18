@@ -3,32 +3,29 @@ var dirTema = document.querySelector("meta[name='theme_path']").getAttribute('co
 require.config({
 	baseUrl: '/',
     urlArgs: "v=003",
-	waitSeconds: 60,
+	waitSeconds: 30,
 	shim: {
 		"jq_flexslider" : {
-			deps : ['jquery'],
+			deps : ['jquery']
 		},
 		"owl_carousel" : {
-			deps: ['jquery'],
+			deps: ['jquery']
 		},
 		"noty" : {
-			deps : ['jquery'],
-		},
-		"noty_util" : {
-			deps : ['jquery','noty'],
+			deps : ['jquery']
 		},
 		"bootstrap"	: {
-			deps: ['jquery'],
+			deps: ['jquery']
 		},
 		"cart" : {
-			deps : ['jquery'],
+			deps : ['jquery','noty']
 		},
 		'fancybox' : {
 			deps : ['jquery']
 		},
 		'jq_ui' : {
-			deps : ['jquery'],
-		},
+			deps : ['jquery']
+		}
 	},
 
 	paths: {
@@ -37,7 +34,6 @@ require.config({
 		cart			: 'js/shop_cart',
 		jq_ui			: 'js/jquery-ui',
 		noty			: 'js/jquery.noty',
-		noty_util		: 'js/utils/noty',
 		bootstrap		: '//maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min',
 		fancybox		: dirTema+'/assets/js/lib/jquery.fancybox.pack',
 		jq_flexslider	: dirTema+'/assets/js/lib/jquery.flexslider-min',
@@ -50,22 +46,19 @@ require.config({
 		// CONTROLLER
 		home            : dirTema+'/assets/js/pages/home',
 		produk          : dirTema+'/assets/js/pages/produk',
-		main	        : dirTema+'/assets/js/pages/default',
+		// main	        : dirTema+'/assets/js/pages/default',
 	}
 });
 require([
 	'jquery',
+	'bootstrap',
+	'modernizr',
 	'router',
 	'cart',
-	'noty_util',
-	'main'
-], function($,router,cart,noty,main)
-{
+], function($,b,m,router,cart){
 	router.define('/', 'home@run');
 	router.define('home', 'home@run');
 	router.define('produk/*', 'produk@run');
 	router.run();
-	noty.run();
 	cart.run();
-	main.run();
 });

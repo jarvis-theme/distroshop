@@ -1,4 +1,3 @@
-<style type="text/css">#category{padding: 0 20px}#submenu-child{background-color:transparent}#hal-article{margin-bottom:10px}#title-hal{margin-bottom: 3px}#tags-hal{margin-bottom: 15px}</style>
 <div class="container">
     <div class="breadcrumb"><p>Hasil Pencarian</p></div>
     <div class="inner-column row">
@@ -45,7 +44,7 @@
                     <li>
                         <a href="{{product_url($best)}}">
                             <div class="img-block">
-                                <img src="{{url(product_image_url($best->gambar1,'thumb'))}}" width="70" height="70" alt="Best Seller" />
+                                <img src="{{url(product_image_url($best->gambar1,'thumb'))}}" width="70" height="70" alt="{{$best->nama}}" />
                             </div>
                             <p class="product-name">{{short_description($best->nama,25)}}</p>
                             @if(!empty($best->hargaCoret))
@@ -56,16 +55,16 @@
                     </li>
                     @endforeach
                 </ul>
-                <div class="btn-more"><a href="{{url('produk')}}">view more</a></div>
+                <div class="btn-more"><a href="{{url('produk')}}">Lihat Semua</a></div>
             </div>
             @endif
             <div id="latest-news" class="block">
-                <div class="title"><h2>Artikel <strong>Terbaru</strong></h2></div>
+                <div class="title"><h2>Artikel Terbaru</h2></div>
                 <ul class="block-content">
                     @foreach(list_blog(3) as $value)
                     <li>
                         <h5 class="title-news">{{$value->judul}}</h5>
-                        <p>{{short_description($value->isi,55)}}...<a class="read-more" href="{{blog_url($value)}}">Read More</a></p>
+                        <p>{{short_description($value->isi,55)}}<a class="read-more" href="{{blog_url($value)}}">Selengkapnya</a></p>
                         <span class="date-post">{{date("d M Y", strtotime($value->created_at))}}</span>
                     </li> 
                     @endforeach
@@ -74,7 +73,7 @@
             @foreach(vertical_banner() as $banners)
             <div id="adv-sidebar">
                 <a href="{{url($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar),'Promo',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
+                    {{HTML::image(banner_image_url($banners->gambar), 'Info Promo',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
                 </a>
             </div>
             @endforeach
@@ -110,24 +109,24 @@
                 </div>
                 <div class="row">
                     @foreach($hasilhal as $hal)
-                    <article class="col-lg-12" id="hal-article">
-                        <h3 id="title-hal">
+                    <article class="col-lg-12" id="article">
+                        <h3 id="blog-title">
                             <strong><a href="{{url('halaman/'.$hal->slug)}}">
                             {{$hal->judul}}</a></strong>
                         </h3>
                         <p>
-                            {{short_description($hal->isi,300)}}<br>
+                            {{short_description($hal->isi,300)}}<br><br>
                             <a href="{{url('halaman/'.$hal->slug)}}" class="theme">Baca Selengkapnya →</a>
                         </p>
                     </article>
                     @endforeach
                     @foreach($hasilblog as $blog_result)  
                     <article class="col-lg-12" id="hal-article">
-                        <h3 id="title-hal">
+                        <h3 id="blog-title">
                             <strong><a href="{{blog_url($blog_result)}}">{{$blog_result->judul}}</a></strong>
                         </h3>
                         <p id="tags-hal">
-                            <small><i class="fa fa-calendar"></i> {{waktuTgl($blog_result->updated_at)}}</small>&nbsp;&nbsp;
+                            <small><i class="fa fa-calendar"></i> {{waktuTgl($blog_result->created_at)}}</small>&nbsp;&nbsp;
                             <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$blog_result->kategori)}}">{{@$blog_result->kategori->nama}}</a></span>
                         </p>
                         <p>
@@ -139,9 +138,7 @@
                     @endforeach 
                 </div>
                 @else
-                <article class="text-center">
-                    <i>Hasil pencarian tidak ditemukan</i>
-                </article>
+                <article class="text-center"><i>Hasil pencarian tidak ditemukan</i></article>
                 @endif
             </div>
         </div>

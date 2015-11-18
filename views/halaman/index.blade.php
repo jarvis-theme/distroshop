@@ -21,7 +21,7 @@
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
-                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), 'Best Seller', array('class'=>'img-responsive','id'=>'img-best'))}}
+                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), $bestproduk->nama, array('class'=>'img-responsive','id'=>'img-best'))}}
                             </div>
                             <p class="product-name">{{short_description($bestproduk->nama,15)}}</p>
                             @if(!empty($bestproduk->hargaCoret))
@@ -32,14 +32,14 @@
                     </li>
                     @endforeach
                 </ul>
-                <div class="btn-more"><a href="{{url('produk')}}">view more</a></div>
+                <div class="btn-more"><a href="{{url('produk')}}">Lihat Semua</a></div>
             </div>
             @endif
             @foreach(vertical_banner() as $banners)
             <div id="advertising">
             	<div class="img-block">
             		<a href="{{url($banners->url)}}">
-                        {{HTML::image(banner_image_url($banners->gambar),'Promo',array('width'=>'272','height'=>'391','class'=>'img-responsive'))}}
+                        {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('width'=>'272','height'=>'391','class'=>'img-responsive'))}}
                     </a>
                 </div>
             </div>

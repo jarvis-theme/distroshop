@@ -1,4 +1,3 @@
-<style type="text/css">#category{padding: 0 20px}</style>
 <div class="container">
     <div class="breadcrumb">
         <p>PRODUK</p>
@@ -46,17 +45,17 @@
                     <li>
                         <a href="{{product_url($best)}}">
                             <div class="img-block">
-                                <img src="{{url(product_image_url($best->gambar1,'thumb'))}}" width="70" height="70" alt="Best Seller" />
+                                <img src="{{url(product_image_url($best->gambar1,'thumb'))}}" width="70" height="70" alt="{{$best->nama}}" />
                             </div>
                             <p class="product-name">{{short_description($best->nama,25)}}</p>
-                            <p class="price">{{$best->hargaJual}}</p>
+                            <p class="price">{{price($best->hargaJual)}}</p>
                             <p class="desc">{{short_description($best->deskripsi,37)}}</p> 
                         </a>
                     </li>
                     @endforeach
                 </ul>
                 <div class="btn-more">
-                    <a href="{{url('produk')}}">view more</a>
+                    <a href="{{url('produk')}}">Lihat Semua</a>
                 </div>
             </div>
             <div id="latest-news" class="block">
@@ -65,7 +64,7 @@
                     @foreach(list_blog() as $blog)
                     <li>
                         <h5 class="title-news">{{short_description($blog->judul,30)}}</h5>
-                        <p>{{short_description($blog->isi,46)}} <a class="read-more" href="{{blog_url($blog)}}">Read More</a></p>
+                        <p>{{short_description($blog->isi,46)}} <a class="read-more" href="{{blog_url($blog)}}">Selengkapnya</a></p>
                         <span class="date-post">{{date("F d, Y", strtotime($blog->created_at))}}</span>
                     </li>
                     @endforeach
@@ -74,7 +73,7 @@
             @foreach(vertical_banner() as $banners)
             <div id="adv-sidebar">
                 <a href="{{URL::to($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar),'Promo',array('class'=>'img-responsive'))}}
+                    {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('class'=>'img-responsive'))}}
                 </a>
             </div>
             @endforeach
@@ -83,11 +82,14 @@
             <div class="product-list">
                 <div class="row">
                     <ul class="grid">
-                        @foreach(list_product(null, @$category) as $product)
+                        {{-- */ $i=1 /* --}}
+                        @foreach(list_product(null, @$category, @$collection) as $product)
                         <li class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
                             <div class="prod-container">
                                 <div class="image-container">
-                                    <a href="{{product_url($product)}}"><img class="img-responsive" src="{{url(product_image_url($product->gambar1,'medium'))}}" alt="{{$product->nama}}" /></a>
+                                    <a href="{{product_url($product)}}">
+                                        <img class="img-responsive" src="{{url(product_image_url($product->gambar1,'medium'))}}" alt="{{$product->nama}}" />
+                                    </a>
                                     @if(is_outstok($product))
                                     <div class="icon-info icon-sold">Sold</div>
                                     @elseif(is_terlaris($product))
@@ -102,6 +104,12 @@
                                 </div>
                             </div>
                         </li>
+                            @if($i%2 == 0)
+                            <div class="visible-xs clr"></div>
+                            @elseif($i%3 == 0)
+                            <div class="visible-lg clr"></div>
+                            @endif
+                            {{-- */ $i++ /* --}}
                         @endforeach
                     </ul>
                 </div>

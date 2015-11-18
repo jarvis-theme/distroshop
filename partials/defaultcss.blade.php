@@ -1,7 +1,7 @@
     {{favicon()}}   
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
     {{generate_theme_css('distroshop/assets/css/reset.css')}}
     {{generate_theme_css('distroshop/assets/css/bootstrap-custom.css')}}
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
     
     @if($tema->isiCss=='')  
     {{generate_theme_css('distroshop/assets/css/style.css')}}

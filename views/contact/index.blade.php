@@ -1,4 +1,3 @@
-<style type="text/css">#category{padding: 0 20px}#submenu-child{background-color:transparent}#map{height:300px}#map-frame{float:right;width:100%}</style>
 <div class="container">
     <div class="breadcrumb"><p>Hubungi Kami</p></div>
         <div class="inner-column row">
@@ -39,13 +38,13 @@
                 </div>
                 @if(count(best_seller()) > 0)
                 <div id="best-seller" class="block">
-                    <div class="title"><h2>Best <strong>Seller</strong></h2></div>
+                    <div class="title"><h2>Produk Terlaris</h2></div>
                     <ul class="block-content">
-                        @foreach(best_seller() as $bestproduk )
+                        @foreach(best_seller() as $bestproduk)
                         <li>
                             <a href="{{product_url($bestproduk)}}">
                                 <div class="img-block">
-                                    {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), 'Best Seller', array('class'=>'img-responsive','id'=>'img-best'))}}
+                                    {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), $bestproduk->nama, array('class'=>'img-responsive','id'=>'img-best'))}}
                                 </div>
                                 <p class="product-name">{{short_description($bestproduk->nama,15)}}</p>
                                 @if(!empty($bestproduk->hargaCoret))
@@ -56,7 +55,7 @@
                         </li>
                         @endforeach
                     </ul>
-                    <div class="btn-more"><a href="{{url('koleksi/best-seller')}}">view more</a></div>
+                    <div class="btn-more"><a href="{{url('koleksi/best-seller')}}">Lihat Semua</a></div>
                 </div>
                 @endif
                 <div id="latest-news" class="block">
@@ -65,7 +64,7 @@
                         @foreach(list_blog(2) as $blogs)
                         <li>
                             <h5 class="title-news">{{$blogs->judul}}</h5>
-                            <p>{{short_description($blogs->isi, 150)}}<a class="read-more" href="{{blog_url($blogs)}}">Read More</a></p>
+                            <p>{{short_description($blogs->isi, 150)}}<a class="read-more" href="{{blog_url($blogs)}}">Selengkapnya</a></p>
                             <span class="date-post">{{date("F d, Y", strtotime($blogs->created_at))}}</span>
                         </li>
                         @endforeach
@@ -75,9 +74,9 @@
             <div id="center_column" class="col-lg-9 col-xs-12 col-sm-8">
                 <div class="maps" id="map">
                     @if($kontak->lat!='0' || $kontak->lng!='0')
-                    <iframe id="map-frame" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->lat.','.$kontak->lng }}&amp;aq=&amp;sll={{ $kontak->lat.','.$kontak->lng }}&amp;sspn=0.006849,0.009892&amp;ie=UTF8&amp;t=m&amp;z=14&amp;output=embed"></iframe><br />
+                    <iframe id="map-frame" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->lat.','.$kontak->lng }}&amp;aq=&amp;sll={{ $kontak->lat.','.$kontak->lng }}&amp;sspn={{ $kontak->lat.','.$kontak->lng }}&amp;ie=UTF8&amp;t=m&amp;z=14&amp;output=embed"></iframe><br />
                     @else
-                    <iframe id="map-frame" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->alamat }}&amp;aq=0&amp;oq=gegerkalong+hil&amp;sspn=0.006849,0.009892&amp;ie=UTF8&amp;hq=&amp;hnear={{ $kontak->alamat }}&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br />
+                    <iframe id="map-frame" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{str_replace(' ','+',$kontak->alamat)}}&amp;aq=0&amp;oq={{str_replace(' ','+',$kontak->alamat)}}&amp;sspn={{ $kontak->lat.','.$kontak->lng }}&amp;ie=UTF8&amp;hq=&amp;hnear={{str_replace(' ','+',$kontak->alamat)}}&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br />
                     @endif
                 </div>
                 <div class="contact-us" >
@@ -111,7 +110,7 @@
                         <p class="form-group">
                             <textarea class="form-control" placeholder="Pesan" name="messageKontak" required></textarea>
                         </p>
-                        <button class="btn btn-info">Kirim</button>
+                        <button class="btn btn-info" type="submit">Kirim</button>
                     </form>
                 </div>
             </div>

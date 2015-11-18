@@ -1,4 +1,3 @@
-<style type="text/css">#category{padding: 0 20px}#empty{color: #d9534f}</style>
 <div class="container">
     <div class="breadcrumb">
         <p>DETAIL PRODUK</p>
@@ -46,7 +45,7 @@
                     <li>
                         <a href="{{product_url($best)}}">
                             <div class="img-block">
-                                <img src="{{url(product_image_url($best->gambar1,'thumb'))}}" width="70" height="70" alt="Best Seller" />
+                                <img src="{{url(product_image_url($best->gambar1,'thumb'))}}" width="70" height="70" alt="{{$best->nama}}" />
                             </div>
                             <p class="product-name">{{short_description($best->nama,25)}}</p>
                             @if(!empty($best->hargaCoret))
@@ -58,13 +57,13 @@
                     @endforeach
                 </ul>
                 <div class="btn-more">
-                    <a href="{{url('produk')}}">view more</a>
+                    <a href="{{url('produk')}}">Lihat Semua</a>
                 </div>
             </div>
             @foreach(vertical_banner() as $banners)
             <div id="adv-sidebar">
                 <a href="{{URL::to($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar),'Promo',array('class'=>'img-responsive'))}}
+                    {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('class'=>'img-responsive'))}}
                 </a>
             </div>
             @endforeach
@@ -75,19 +74,31 @@
                     <div class="row">
                         <div id="prod-left" class="col-lg-6 col-xs-12 col-sm-12">
                             <div class="big-image">
-                                <img src="{{url(product_image_url($produk->gambar1,'large'))}}" width="420" height="420" title="{{$produk->nama}}" alt="{{$produk->nama}}" />
+                                <img src="{{url(product_image_url($produk->gambar1,'medium'))}}" width="420" height="420" title="{{$produk->nama}}" alt="{{$produk->nama}}" />
                                 <a class="zoom fancybox" href="{{url(product_image_url($produk->gambar1,'large'))}}" title="{{$produk->nama}}">&nbsp;</a>
                             </div>
                             <div id="thumb-view">
                                 <ul id="thumb-list" class="owl-carousel owl-theme">
                                     @if($produk->gambar2 != '')
-                                    <li class="item"><a class="fancybox" href="{{url(product_image_url($produk->gambar2,'large'))}}" title="{{$produk->nama}}"><img src="{{url(product_image_url($produk->gambar2,'thumb'))}}" width="134" height="133" alt="{{$produk->nama}}" /></a></li>
+                                    <li class="item">
+                                        <a class="fancybox" href="{{url(product_image_url($produk->gambar2,'large'))}}" title="{{$produk->nama}}">
+                                            <img src="{{url(product_image_url($produk->gambar2,'thumb'))}}" width="134" height="133" alt="{{$produk->nama}}" />
+                                        </a>
+                                    </li>
                                     @endif
                                     @if($produk->gambar3 != '')
-                                    <li class="item"><a class="fancybox" href="{{url(product_image_url($produk->gambar3,'large'))}}" title="{{$produk->nama}}"><img src="{{url(product_image_url($produk->gambar3,'thumb'))}}" width="134" height="133" alt="{{$produk->nama}}" /></a></li>
+                                    <li class="item">
+                                        <a class="fancybox" href="{{url(product_image_url($produk->gambar3,'large'))}}" title="{{$produk->nama}}">
+                                            <img src="{{url(product_image_url($produk->gambar3,'thumb'))}}" width="134" height="133" alt="{{$produk->nama}}" />
+                                        </a>
+                                    </li>
                                     @endif
                                     @if($produk->gambar4 != '')
-                                    <li class="item"><a class="fancybox" href="{{url(product_image_url($produk->gambar4,'large'))}}" title="{{$produk->nama}}"><img src="{{url(product_image_url($produk->gambar4,'thumb'))}}" width="134" height="133" alt="{{$produk->nama}}" /></a></li>
+                                    <li class="item">
+                                        <a class="fancybox" href="{{url(product_image_url($produk->gambar4,'large'))}}" title="{{$produk->nama}}">
+                                            <img src="{{url(product_image_url($produk->gambar4,'thumb'))}}" width="134" height="133" alt="{{$produk->nama}}" />
+                                        </a>
+                                    </li>
                                     @endif
                                 </ul>
                             </div>
@@ -103,7 +114,7 @@
                             </div>
                             <div class="desc-prod">
                                 <p class="title">Deskripsi Produk :</p>
-                                <p>{{$produk->deskripsi}}</p>
+                                <p>{{short_description($produk->deskripsi, 500)}}</p>
                             </div>
                             @if($opsiproduk->count() > 0)
                             <div class="size-list">
@@ -152,8 +163,6 @@
                         <div class="clr"></div>
                     </div>
                     <div class="btm-details">
-                        <div class="bank-logo fl">
-                        </div>
                         <div class="button-detail fr">
                             <button class="btn addtocart"><i class="cart"></i>Add to cart</button>
                         </div>
@@ -161,16 +170,23 @@
                     </div>
                 </form>
             </div>
-            @if(count(other_product($produk, 3)) > 0)
+            @if(count(other_product($produk, 4)) > 0)
             <div id="related-product" class="product-list">
-                <h2 class="title">Related Product</h2>
+                <h2 class="title">Produk Lainnya</h2>
                 <div class="row">
                     <ul class="grid">
-                        @foreach(other_product($produk,3) as $relproduk)
+                        {{-- */ $i=1 /* --}}
+                        @foreach(other_product($produk,4) as $relproduk)
+                        @if($i == 4)
+                        <li class="col-xs-6 col-sm-4 col-md-4 col-lg-4 visible-xs">
+                        @else
                         <li class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                        @endif
                             <div class="prod-container">
                                 <div class="image-container">
-                                    <a href="{{product_url($relproduk)}}"><img class="img-responsive" src="{{url(product_image_url($relproduk->gambar1,'medium'))}}" alt="Produk Terkait" /></a>
+                                    <a href="{{product_url($relproduk)}}">
+                                        <img class="img-responsive" src="{{url(product_image_url($relproduk->gambar1,'medium'))}}" alt="{{$relproduk->nama}}" />
+                                    </a>
                                     @if(is_outstok($relproduk))
                                     <div class="icon-info icon-sold">Sold</div>
                                     @elseif(is_terlaris($relproduk))
@@ -179,11 +195,15 @@
                                     <div class="icon-info icon-promo">New</div>
                                     @endif
                                 </div>
-                                <h5 class="product-name">{{$relproduk->nama}}</h5>
+                                <h5 class="product-name">{{short_description($relproduk->nama,15)}}</h5>
                                 <span class="price">{{price($relproduk->hargaJual)}}</span>
-                                <a class="view btn-small" href="{{product_url($relproduk)}}">See Details</a>
+                                <a class="view btn-small" href="{{product_url($relproduk)}}">Detail</a>
                             </div>
                         </li>
+                        @if($i%2 == 0)
+                        <div class="visible-xs clr"></div>
+                        @endif
+                        {{-- */ $i++ /* --}}
                         @endforeach
                     </ul>
                 </div>
