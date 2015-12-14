@@ -38,25 +38,25 @@
 				<div class="form-group">
 					<label for="inputCountry" class="col-md-2 control-label">Negara</label>
 					<div class="col-md-4">
-						{{Form::select('negara',array('' => '-- Pilih Negara --') + $negara , ($user ? $user->negara :(Input::old("negara")? Input::old("negara") :"")), array('required'=>'', 'id'=>'negara', 'class'=>'form-control'))}}
+						{{Form::select('negara',array('' => '-- Pilih Negara --') + $negara, ($user ? $user->negara :(Input::old("negara")? Input::old("negara") :"")), array('required'=>'', 'id'=>'negara', 'class'=>'form-control'))}}
 					</div>
 				</div>      
 				<div class="form-group">
 					<label for="inputCountry" class="col-md-2 control-label">Provinsi</label>
 					<div class="col-md-4">
-						{{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi , ($user ? $user->provinsi :(Input::old("provinsi")? Input::old("provinsi") :"")),array('required'=>'','id'=>'provinsi', 'class'=>'form-control'))}}
+						{{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi, ($user ? $user->provinsi :(Input::old("provinsi")? Input::old("provinsi") :"")),array('required'=>'','id'=>'provinsi', 'class'=>'form-control'))}}
 					</div>
 				</div>      
 				<div class="form-group">
 					<label for="inputCountry" class="col-md-2 control-label">Kota</label>
 					<div class="col-md-4">
-						{{Form::select('kota',array('' => '-- Pilih Kota --') + $kota , ($user ? $user->kota :(Input::old("kota")? Input::old("kota") :"")),array('required'=>'','id'=>'kota', 'class'=>'form-control'))}}
+						{{Form::select('kota',array('' => '-- Pilih Kota --') + $kota, ($user ? $user->kota :(Input::old("kota")? Input::old("kota") :"")),array('required'=>'','id'=>'kota', 'class'=>'form-control'))}}
 					</div>
 				</div>              
 				<div class="form-group">
 					<label for="inputAddress" class="col-md-2 control-label">Alamat</label>
 					<div class="col-md-4">
-					   <textarea class="form-control" rows="3" placeholder="Address" name="alamat" required>{{$user->alamat}}</textarea>
+					   <textarea class="form-control" rows="3" placeholder="Alamat" name="alamat" required>{{$user->alamat}}</textarea>
 					</div>
 				</div>
 				<div class="form-group">

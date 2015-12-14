@@ -16,7 +16,8 @@ define(['jq_flexslider','owl_carousel'], function(flexslider,owlCarousel)
 				],
 				navigation : true,
 				pagination: true,
-				navigationText: false
+				navigationText: false,
+				autoPlay: true
 			});
 		};
 	}

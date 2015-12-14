@@ -4,7 +4,7 @@
             <div class="user-info fl">
                 <form class="navbar-form navbar-left hidden-xs zeromargin" action="{{URL::to('search')}}" method="post">
                     <div class="input-group">
-                        <input class="form-control" id="search" type="text" name="search" placeholder="Cari" required>
+                        <input class="form-control" id="search" type="text" name="search" placeholder="Cari Produk" required>
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
                         </span>
@@ -29,7 +29,7 @@
             <div id="logo" class="fl">
                 @if(@getimagesize(url( logo_image_url() )))
                 <a href="{{url('home')}}">
-                    <img src="{{url(logo_image_url())}}" alt="Logo" width="313" height="151" />
+                    <img src="{{url(logo_image_url())}}" alt="Logo {{Theme::place('title')}}" width="313" height="151" />
                 </a>
                 @else
                 <br>

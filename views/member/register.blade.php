@@ -32,19 +32,19 @@
 				<div class="form-group">
 					<label for="dropdown" class="col-lg-2">Negara</label>
 					<div class="col-lg-10">
-						{{Form::select('negara',array('' => '-- Pilih Negara --') + $negara,Input::old(''),array('required', 'id="negara" data-rel="chosen" class="form-control"'))}}
+						{{Form::select('negara',array('' => '-- Pilih Negara --') + $negara, Input::old('negara'),array('required', "id"=>"negara", "data-rel"=>"chosen", "class"=>"form-control"))}}
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="dropdown" class="col-lg-2">Provinsi</label>
 					<div class="col-lg-10">
-						{{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi, Input::old("provinsi"),array('required', 'id="provinsi" data-rel="chosen" class="form-control"'))}}
+						{{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi, Input::old("provinsi"),array('required', "id"=>"provinsi", "data-rel"=>"chosen", "class"=>"form-control"))}}
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="dropdown" class="col-lg-2">Kota</label>
 					<div class="col-lg-10">
-						{{Form::select('kota',array('' => '-- Pilih Kota --') + $kota, Input::old("kota"),array('required', 'id="kota" data-rel="chosen" class="form-control"'))}}
+						{{Form::select('kota',array('' => '-- Pilih Kota --') + $kota, Input::old("kota"),array('required', "id"=>"kota", "data-rel"=>"chosen", "class"=>"form-control"))}}
 					</div>
 				</div>
 				<div class="form-group">

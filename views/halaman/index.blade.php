@@ -7,7 +7,7 @@
                     @foreach(list_blog(2) as $blogs)
                     <li>
                         <h5 class="title-news">{{$blogs->judul}}</h5>
-                        <p>{{short_description($blogs->isi, 150)}}<a class="read-more" href="{{blog_url($blogs)}}">Read More</a></p>
+                        <p>{{short_description($blogs->isi, 150)}}<a class="read-more" href="{{blog_url($blogs)}}">Selengkapnya</a></p>
                         <span class="date-post">{{date("F d, Y", strtotime($blogs->created_at))}}</span>
                     </li>
                     @endforeach

@@ -105,7 +105,7 @@
                             </div>
                         </li>
                             @if($i%2 == 0)
-                            <div class="visible-xs clr"></div>
+                            <div class="hidden-lg clr"></div>
                             @elseif($i%3 == 0)
                             <div class="visible-lg clr"></div>
                             @endif

@@ -83,6 +83,7 @@
                 @if($jumlahCari != 0)
                 <div class="row">
                     <ul class="grid">
+                        {{-- */ $i=1 /* --}}
                         @foreach($hasilpro as $produks)
                         <li class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
                             <div class="prod-container">
@@ -104,6 +105,10 @@
                                 </div>
                             </div>
                         </li>
+                        @if($i%2==0)
+                        <div class="clearfix"></div>
+                        @endif
+                        {{-- */ $i++ /* --}}
                         @endforeach
                     </ul>
                 </div>

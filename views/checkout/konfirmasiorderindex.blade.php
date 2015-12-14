@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="inner-column row">
-        <div id="left_sidebar" class="col-lg-3 col-xs-12">
+        <div id="left_sidebar" class="col-xs-12 col-md-3 col-lg-3">
             @foreach(vertical_banner() as $banner)
             <div id="advertising">
             	<div class="img-block">
@@ -11,7 +11,7 @@
             </div>
             @endforeach
         </div>
-        <div id="center_column" class="col-lg-5 col-xs-12">
+        <div id="center_column" class="col-xs-12 col-md-5 col-lg-5">
 	        <div class="contact-us">
 	            <h2 class="title">Konfirmasi Order</h2>
 				{{Form::open(array('url'=>'konfirmasiorder','method'=>'post','class'=>'form-inline'))}}
@@ -26,8 +26,8 @@
 	        </div>
 	        <br>
 	    </div>
-	    <div class="col-lg-4 col-xs-12">
-    		<h2>New Member</h2>
+	    <div class="col-xs-12 col-md-4 col-lg-4">
+    		<h2>Pelanggan Baru</h2>
 	    	<p>Nikmati kemudahan dalam berbelanja dengan daftar menjadi member di toko kami.</p>
 	    	<br>
 	    	<a class="btn btn-info" href="{{url('member/create')}}">Register</a>
