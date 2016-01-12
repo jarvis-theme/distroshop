@@ -27,7 +27,7 @@
     <div id="center-header">
         <div class="container">
             <div id="logo" class="fl">
-                @if(@getimagesize(url( logo_image_url() )))
+                @if( logo_image_url() )
                 <a href="{{url('home')}}">
                     <img src="{{url(logo_image_url())}}" alt="Logo {{Theme::place('title')}}" width="313" height="151" />
                 </a>

@@ -115,7 +115,7 @@
                     <div class="form-group">
                         <label class="control-label"> Jumlah:</label>
                         @if($checkouttype==1)        
-                        <input type="text" class="form-control" id="search" placeholder="jumlah yg terbayar" name="jumlah" value="{{$order->total}}" required>
+                        <input type="text" class="form-control" id="search" placeholder="Jumlah dana yang ditransfer" name="jumlah" value="{{$order->total}}" required>
                         @else
                             @if($order->status < 2)
                             <input class="form-control" id="search" placeholder="jumlah yg terbayar" type="text" name="jumlah" value="{{$order->dp}}" required>
