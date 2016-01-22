@@ -29,7 +29,7 @@
             <div id="logo" class="fl">
                 @if( logo_image_url() )
                 <a href="{{url('home')}}">
-                    <img src="{{url(logo_image_url())}}" alt="Logo {{Theme::place('title')}}" width="313" height="151" />
+                    <img src="{{url(logo_image_url())}}" alt="Logo {{Theme::place('title')}}" />
                 </a>
                 @else
                 <br>
