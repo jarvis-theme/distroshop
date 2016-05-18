@@ -10,6 +10,7 @@
                     @endforeach 
                 </ul>
             </div>
+            @if(best_seller()->count() > 0)
             <div id="best-seller" class="block">
                 <div class="title"><h2>Produk Terlaris</h2></div>
                 <ul class="block-content">
@@ -30,10 +31,11 @@
                 </ul>
                 <div class="btn-more"><a href="{{url('koleksi/best-seller')}}">Lihat Semua</a></div>
             </div>
+            @endif
             @foreach(vertical_banner() as $banners)
             <div id="adv-sidebar">
                 <a href="{{url($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar), 'Info Promo',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
+                    {{HTML::image(banner_image_url($banners->gambar), 'Info Promo',array('class'=>'img-responsive'))}}
                 </a>
             </div>
             @endforeach

@@ -47,32 +47,32 @@
                     <ul>
                         @if(!empty($kontak->fb))
                         <li>
-                            <a href="{{url($kontak->fb)}}" title="Facebook"><span class="fa-stack fa-2x"><i class="fa fa-circle fa-stack-2x" id="fb"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></a>
+                            <a href="{{url($kontak->fb)}}" title="Facebook"><span class="fa-stack fa"><i class="fa fa-circle fa-stack-2x" id="fb"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></a>
                         </li>
                         @endif
                         @if(!empty($kontak->tw))
                         <li>
-                            <a href="{{url($kontak->tw)}}" title="Twitter"><span class="fa-stack fa-2x"><i class="fa fa-circle fa-stack-2x" id="tw"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></a>
+                            <a href="{{url($kontak->tw)}}" title="Twitter"><span class="fa-stack fa"><i class="fa fa-circle fa-stack-2x" id="tw"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></a>
                         </li>
                         @endif
                         @if(!empty($kontak->gp))
                         <li>
-                            <a href="{{url($kontak->gp)}}" title="Google+"><span class="fa-stack fa-2x"><i class="fa fa-circle fa-stack-2x" id="gp"></i><i class="fa fa-google-plus fa-stack-1x fa-inverse"></i></span></a>
+                            <a href="{{url($kontak->gp)}}" title="Google+"><span class="fa-stack fa"><i class="fa fa-circle fa-stack-2x" id="gp"></i><i class="fa fa-google-plus fa-stack-1x fa-inverse"></i></span></a>
                         </li>
                         @endif
                         @if(!empty($kontak->pt))
                         <li>
-                            <a href="{{url($kontak->pt)}}" title="Pinterest"><span class="fa-stack fa-2x"><i class="fa fa-pinterest fa-2x" id="pt"></i></span></a>
+                            <a href="{{url($kontak->pt)}}" title="Pinterest"><span class="fa-stack fa"><i class="fa fa-pinterest fa-2x" id="pt"></i></span></a>
                         </li>
                         @endif
                         @if(!empty($kontak->tl))
                         <li>
-                            <a href="{{url($kontak->tl)}}" title="Tumblr"><span class="fa-stack fa-2x"><i class="fa fa-circle fa-stack-2x" id="tl"></i><i class="fa fa-tumblr fa-stack-1x fa-inverse"></i></span></a>
+                            <a href="{{url($kontak->tl)}}" title="Tumblr"><span class="fa-stack fa"><i class="fa fa-circle fa-stack-2x" id="tl"></i><i class="fa fa-tumblr fa-stack-1x fa-inverse"></i></span></a>
                         </li>
                         @endif
                         @if(!empty($kontak->ig))
                         <li>
-                            <a href="{{url($kontak->ig)}}" title="Instagram"><span class="fa-stack fa-2x"><i class="fa fa-circle fa-stack-2x" id="ig-circle"></i><i class="fa fa-instagram fa-stack-1x fa-inverse" id="ig"></i></span></a>
+                            <a href="{{url($kontak->ig)}}" title="Instagram"><span class="fa-stack fa"><i class="fa fa-circle fa-stack-2x" id="ig-circle"></i><i class="fa fa-instagram fa-stack-1x fa-inverse" id="ig"></i></span></a>
                         </li>
                         @endif
                     </ul>
@@ -117,6 +117,9 @@
                     @endforeach
                     @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
                     <img src="{{url('img/bank/doku.jpg')}}" alt="Doku" title="Doku">
+                    @endif
+                    @if(count(list_veritrans()) > 0 && list_veritrans()->status == 1 && list_veritrans()->type == 1)
+                    <img src="{{url('img/bank/veritrans.png')}}" alt="Veritrans" title="Veritrans">
                     @endif
                 </div>
                 <div class="clr"></div>

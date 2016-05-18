@@ -37,7 +37,9 @@
 	    </div>
 	    <div class="col-lg-3 col-xs-12">
 	    	@foreach(vertical_banner() as $banners)
-	    	{{HTML::image(banner_image_url($banners->gambar), 'Info Promo')}}
+	    	<div id="adv-sidebar">
+	    		{{HTML::image(banner_image_url($banners->gambar), 'Info Promo')}}
+    		</div>
 	    	@endforeach
 	    </div>
     </div>

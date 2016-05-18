@@ -8,7 +8,7 @@
                 @else
                 <a href="#">
                 @endif
-                	{{HTML::image(slide_image_url($val->gambar), 'slide', array('width'=>'1170', 'class'=>'img-responsive'))}}
+                	{{HTML::image(slide_image_url($val->gambar), $val->title, array('width'=>'1170', 'class'=>'img-responsive'))}}
             	</a>
             </li>
             @endforeach

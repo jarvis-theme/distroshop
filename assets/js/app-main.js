@@ -3,7 +3,7 @@ var dirTema = document.querySelector("meta[name='theme_path']").getAttribute('co
 require.config({
 	baseUrl: '/',
     urlArgs: "v=004",
-	waitSeconds: 30,
+	waitSeconds: 60,
 	shim: {
 		"jq_flexslider" : {
 			deps : ['jquery']

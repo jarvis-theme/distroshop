@@ -78,7 +78,7 @@
         <div id="adv-home">
             <div class="row">
                 @foreach(vertical_banner() as $side_banner)
-                <div class="col-xs-4">
+                <div class="col-xs-12 col-sm-4">
                     <div class="adv-third">
                         <a href="{{$side_banner->url}}">
                             <img src="{{url(banner_image_url($side_banner->gambar))}}" alt="Info Promo" />
