@@ -94,15 +94,17 @@
                         <li><a href="{{menu_url($link)}}" title="{{$link->nama}}">{{$link->nama}}</a></li>
                         @endif
                         @endforeach
-                    </ul>  
+                    </ul>
                     @endif
                     @endforeach
-                    <div class="clr"></div> 
+                    <div class="clr"></div>
                 </div>
                 <div id="payment_footer" class="col-xs-12 col-sm-6">
                     <span>Payment :</span>
                     @foreach(list_banks() as $value)
-                    <img src="{{bank_logo($value)}}" alt="{{$value->bankdefault->nama}}" title="{{$value->bankdefault->nama}}">
+                        @if($value->status == 1)
+                        <img src="{{bank_logo($value)}}" alt="{{$value->bankdefault->nama}}" title="{{$value->bankdefault->nama}}">
+                        @endif
                     @endforeach
                     @foreach(list_payments() as $pay)
                         @if($pay->nama == 'paypal' && $pay->aktif == 1)
@@ -132,4 +134,4 @@
         </div>
     </div>
 </footer>
-{{pluginPowerup()}}
+{{pluginPowerup()}} 

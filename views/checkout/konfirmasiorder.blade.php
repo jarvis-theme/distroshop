@@ -94,15 +94,15 @@
         @if($order->jenisPembayaran==1 && $order->status == 0)
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-                @if($checkouttype==1)                         
+                @if($checkouttype==1) 
                 {{-- */ $url = 'konfirmasiorder/' /* --}}
-                @else                         
+                @else 
                 {{-- */ $url = 'konfirmasipreorder/' /* --}}
                 @endif
 
                 <center><h2><b>{{trans('content.step5.confirm_btn')." ".trans('content.step3.transfer')}}</b></h2></center>
                 <hr>
-                {{Form::open(array('url'=> $url.$order->id, 'method'=>'put'))}}                           
+                {{Form::open(array('url'=> $url.$order->id, 'method'=>'put'))}} 
                     <div class="form-group">
                         <label class="control-label"> Nama Pengirim:</label>
                         <input type="text" class="form-control" id="search" placeholder="Nama Pengirim" name="nama" required>
@@ -113,16 +113,16 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label"> Rekening Tujuan:</label>
-                        <select name='bank' class="form-control">
-                            <option value=''>-- Pilih Bank Tujuan --</option>
-                            @foreach (list_banks() as $bank)
+                        <select name="bank" class="form-control">
+                            <option value="">-- Pilih Bank Tujuan --</option>
+                            @foreach ($banktrans as $bank)
                             <option value="{{$bank->id}}">{{$bank->bankdefault->nama}} - {{$bank->noRekening}} - A/n {{$bank->atasNama}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label class="control-label"> Jumlah:</label>
-                        @if($checkouttype==1)        
+                        @if($checkouttype==1) 
                         <input type="text" class="form-control" id="search" placeholder="Jumlah Transfer" name="jumlah" value="{{$order->total}}" required>
                         @else
                             @if($order->status < 2)
