@@ -143,13 +143,13 @@
                             @if($opsiproduk->count() > 0)
                             <div class="size-list">
                                 <div class="form-group">
-                                    <label class="col-sm-4 control-label">Opsi :</label>
-                                    <div class="col-sm-5">
+                                    <label class="control-label">Opsi :</label>
+                                    <div>
                                         <select class="form-control attribute_select" name="opsiproduk">
                                             <option value="">-- Pilih Opsi --</option>
                                             @foreach ($opsiproduk as $key => $opsi)
                                             <option value="{{$opsi->id}}" {{ $opsi->stok==0 ? 'disabled':''}} >
-                                                {{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}} {{price($opsi->harga)}}
+                                                {{ucwords($opsi->opsi1).($opsi->opsi2=='' ? '':' / '.ucwords($opsi->opsi2)).($opsi->opsi3=='' ? '':' / '.ucwords($opsi->opsi3))}} - {{price($opsi->harga)}}
                                             </option>
                                             @endforeach
                                         </select>
@@ -159,7 +159,7 @@
                             @endif
                             <div class="quantity">
                                 <div class="form-group">
-                                    <label class="control-label">Quantity :</label>
+                                    <label class="control-label">Jumlah :</label>
                                     <div class="qty-block">
                                         <a href="#" data-field-qty="qty" class="product_quantity_down" field='qty'>
                                             <span><i class="icon-minus"></i></span>

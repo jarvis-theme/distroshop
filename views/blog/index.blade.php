@@ -54,7 +54,7 @@
                         </p>
                         <p>
                             {{shortDescription($blog->isi,300)}}<br>
-                            <a href="{{blog_url($blog)}}" class="theme">Baca Selengkapnya →</a>
+                            <a href="{{blog_url($blog)}}" class="readmore">Baca Selengkapnya →</a>
                         </p>
                         <hr>
                     </article>

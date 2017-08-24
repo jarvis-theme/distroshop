@@ -1,21 +1,21 @@
 <div class="top-list container">
-    <h2 class="title"><i class="fa fa-history"></i> &nbsp;Order History</h2>
-    <div class="clr"></div>
-    <hr>
+	<h2 class="title"><i class="fa fa-history"></i> &nbsp;Order History</h2>
+	<div class="clr"></div>
+	<hr>
 </div>
 
 <div class="container">
 	<div class="inner-column row">
-        <div id="left_sidebar" class="col-md-3">
-            <div id="advertising" class="block">
-            	<div class="title"><h2>My Account</h2></div>
-            	<ul class="nav">
-					<li><a href="{{url('member')}}">Order History</a></li>                         
+		<div id="left_sidebar" class="col-md-3">
+			<div id="account" class="block">
+				<div class="title"><h2>My Account</h2></div>
+				<ul class="nav">
+					<li class="active"><a href="{{url('member')}}">Order History</a></li>
 					<li><a href="{{url('member/profile/edit')}}">Edit Profile</a></li>
 				</ul>
-            </div>            
-        </div>
-        <div id="center_column" class="col-md-9">
+			</div>
+		</div>
+		<div id="center_column" class="col-md-9">
 			@if($pengaturan->checkoutType!=2)
 				@if(list_order()->count() > 0)
 				<div class="table-responsive">
@@ -101,7 +101,7 @@
 						</tbody>
 					</table>
 				</div>
-                {{list_order()->links()}} 
+				{{list_order()->links()}} 
 				@else
 				<span> Belum ada data order.</span>
 				@endif
@@ -147,6 +147,6 @@
 					</table>
 				</div>
 			@endif 
-        </div>
-    </div>
+		</div>
+	</div>
 </div>

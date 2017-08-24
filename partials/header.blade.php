@@ -71,7 +71,7 @@
                         </form>
                     </li>
                 </ul>
-            </div>                                                                                                  
+            </div>
         </div>
     </nav>
     <div class="clr"></div>

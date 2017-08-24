@@ -46,6 +46,7 @@ require.config({
 		// CONTROLLER
 		home            : dirTema+'/assets/js/pages/home',
 		produk          : dirTema+'/assets/js/pages/produk',
+		default         : dirTema+'/assets/js/pages/default',
 	}
 });
 require([
@@ -54,10 +55,12 @@ require([
 	'modernizr',
 	'router',
 	'cart',
-], function($,b,m,router,cart){
+	'default',
+], function($,b,m,router,cart,main){
 	router.define('/', 'home@run');
 	router.define('home', 'home@run');
 	router.define('produk/*', 'produk@run');
 	router.run();
 	cart.run();
+	main.run();
 });

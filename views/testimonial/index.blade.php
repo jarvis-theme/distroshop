@@ -108,7 +108,7 @@
             </div>
             
             <div class="respond">
-                <h3 id="title-testi">Kirim Testimonial</h3>
+                <h3 id="title-testi"><b>Kirim Testimonial</b></h3>
                 <form method="post" action="{{url('testimoni')}}" role="form">
                 	<div class="form-group">
                 		<label for="name">Nama</label>

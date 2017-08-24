@@ -51,7 +51,7 @@
                                 <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$detailblog->kategori)}}">{{@$detailblog->kategori->nama}}</a></span>
                             </small>
                         </ul>
-                        <div class="col-xs-12 col-sm-4 sosial-share" id="btm-margin">{{sosialShare(blog_url($detailblog))}}</div>
+                        <div class="col-xs-12 col-sm-12 col-lg-4 sosial-share" id="btm-margin">{{sosialShare(blog_url($detailblog))}}</div>
                         <p id="top-margin">{{$detailblog->isi}}</p>
                     </div>
                     <hr>
