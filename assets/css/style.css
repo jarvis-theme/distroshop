@@ -84,6 +84,10 @@ select[name="opsiproduk"] { max-width: 75%; }
 #account ul li.active a { font-weight: bold; }
 .picmix { width: 42px; }
 .midtrans { padding: 8px; background: #f7f7f7; }
+.mb0 { margin-bottom: 0; }
+.blog-img { max-width: 100%; margin: 10px 0; }
+.content img { max-width: 100%; }
+
 
 @media (max-width: 1199px) {
 	.sosial-share { padding: 0; }

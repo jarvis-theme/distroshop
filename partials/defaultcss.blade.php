@@ -4,9 +4,9 @@
     {{generate_theme_css('distroshop/assets/css/bootstrap-custom.css')}}
     
     @if($tema->isiCss=='')  
-    {{generate_theme_css('distroshop/assets/css/style.css')}}
+    {{generate_theme_css('distroshop/assets/css/style.css?v=005')}}
     @else   
-    {{generate_theme_css('distroshop/assets/css/editstyle.css')}}
+    {{generate_theme_css('distroshop/assets/css/editstyle.css?v=005')}}
     @endif  
     
     <noscript>

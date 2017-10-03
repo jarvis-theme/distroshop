@@ -164,7 +164,7 @@
                                         <a href="#" data-field-qty="qty" class="product_quantity_down" field='qty'>
                                             <span><i class="icon-minus"></i></span>
                                         </a>
-                                        <input type="text" name="qty" id="qty" class="text" value="1" />
+                                        <input type="text" name="qty" id="qty" class="text" value="1" pattern="[0-9]" />
                                         <a href="#" data-field-qty="qty" class="product_quantity_up" field='qty'>
                                             <span><i class="icon-plus"></i></span>
                                         </a>

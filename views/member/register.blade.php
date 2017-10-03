@@ -32,32 +32,25 @@
 				<div class="form-group">
 					<label class="col-lg-2">Negara</label>
 					<div class="col-lg-10">
-						<select class="form-control" name="negara" id="negara" data-rel="chosen" required>
-							<option selected>-- Pilih Negara --</option>
-							@foreach ($negara as $key=>$item)
-								@if(strtolower($item)=='indonesia')
-								<option value="1" {{Input::old('negara')==1 ? 'selected' : ''}}>{{$item}}</option>
-								@endif
-							@endforeach
-						</select>
+						{{Form::select('negara',array('' => '-- Pilih Negara --') + $negara, Input::old('negara'), array('required', "id"=>"negara", "data-rel"=>"chosen", "class"=>"form-control"))}}
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-lg-2">Provinsi</label>
 					<div class="col-lg-10">
-						{{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi, Input::old("provinsi"),array('required', "id"=>"provinsi", "data-rel"=>"chosen", "class"=>"form-control"))}}
+						{{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi, Input::old("provinsi"), array('required', "id"=>"provinsi", "data-rel"=>"chosen", "class"=>"form-control"))}}
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-lg-2">Kota</label>
 					<div class="col-lg-10">
-						{{Form::select('kota',array('' => '-- Pilih Kota --') + $kota, Input::old("kota"),array('required', "id"=>"kota", "data-rel"=>"chosen", "class"=>"form-control"))}}
+						{{Form::select('kota',array('' => '-- Pilih Kota --') + $kota, Input::old("kota"), array('required', "id"=>"kota", "data-rel"=>"chosen", "class"=>"form-control"))}}
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-lg-2">Alamat</label>
 					<div class="col-lg-10">
-						<textarea id="inputComment" class="form-control" rows="3" name="alamat" required>{{Input::old("alamat")}}</textarea>
+						<textarea class="form-control" rows="3" name="alamat" required>{{Input::old("alamat")}}</textarea>
 					</div>
 				</div> 
 				<div class="form-group">
